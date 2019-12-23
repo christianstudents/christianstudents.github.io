@@ -1,7 +1,7 @@
 ---
 title: Celebration Dinner
 date: 2019-05-31
-featured_image: /group/christianstudent/images/previous/2019-05-31.jpg
+featured_image: /images/previous/2019-05-31.jpg
 categories: 
     - previous-events
 ---

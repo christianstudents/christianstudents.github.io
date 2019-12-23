@@ -1,7 +1,7 @@
 ---
 title: Worship Service 
 date: 2019-11-17
-featured_image: /group/christianstudent/images/previous/2019-11-17-worship-service.jpg
+featured_image: /images/previous/2019-11-17-worship-service.jpg
 categories: previous-events
 ---
 We really enjoyed during this worship service that we can spend time with Jesus. We sang two songs: <a href = "https://soundcloud.com/hymnstream/when-thou-wakest-in-the-morning">"When thou wakest in the morning"</a> and <a href = "https://soundcloud.com/william-jeng/take-time-to-behold-him">"Take time to behold Him"</a>. In the speaking, we learned that we can spend time with Jesus alone. It is good to take a few minutes each day to spend time with Jesus. Here are some things we can do during our time with the Lord: 

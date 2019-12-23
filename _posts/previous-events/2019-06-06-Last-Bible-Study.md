@@ -1,7 +1,7 @@
 ---
 title: Last Bible Study of the Year
 date: 2019-06-06
-featured_image: /group/christianstudent/images/previous/2019-06-06.jpg
+featured_image: /images/previous/2019-06-06.jpg
 categories: 
     - previous-events
 ---
