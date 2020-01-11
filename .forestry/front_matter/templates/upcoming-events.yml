@@ -30,5 +30,11 @@ fields:
 - type: list
   name: categories
   label: categories
+  config:
+    use_select: true
+    source:
+      type: simple
+    options:
+    - previous-events
 pages:
 - _posts/upcoming-events/2020-01-12-worship-service.md
