@@ -1,6 +1,6 @@
 ---
 title: Worship Service
-featured_image: ''
+featured_image: "/uploads/Worship Serviceyear01day:.png"
 date: 2020-01-12 08:00:00 +0000
 start_time: 11:00 AM
 end_time: 12:00 PM
