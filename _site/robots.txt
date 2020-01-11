@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://web.stanford.edu/group/christianstudent//sitemap.xml
