@@ -36,5 +36,6 @@ fields:
       type: simple
     options:
     - previous-events
+    - upcoming-events
 pages:
 - _posts/upcoming-events/2020-01-12-worship-service.md
