@@ -1,2 +1,7 @@
+---
+layout: 
+sitemap: false
+---
+
 User-agent: *
-Sitemap: http://web.stanford.edu/group/christianstudent//sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml

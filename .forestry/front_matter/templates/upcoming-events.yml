@@ -1,0 +1,32 @@
+---
+label: Upcoming Events
+hide_body: true
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+- name: featured_image
+  type: file
+  config:
+    maxSize: 250
+  label: featured_image
+- type: datetime
+  name: date
+  label: date
+- type: text
+  name: start_time
+  label: start_time
+- type: text
+  name: end_time
+  label: end_time
+- type: text
+  name: location
+  label: location
+- type: text
+  name: short_description
+  label: short_description
+- type: list
+  name: categories
+  label: categories

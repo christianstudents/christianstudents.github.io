@@ -1,0 +1,22 @@
+---
+label: Previous Events
+hide_body: true
+fields:
+- name: title
+  type: text
+  config:
+    required: true
+  label: Title
+- name: featured_image
+  type: file
+  config:
+    maxSize: 250
+  label: Featured Image
+- type: datetime
+  name: date
+  label: date
+  config:
+    date_format: YYYY-MM-DD
+- type: list
+  name: categories
+  label: categories

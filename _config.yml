@@ -1,0 +1,80 @@
+---
+title: Stanford Christian Students
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  previous-events:
+    title: Previous Events
+    output: true
+  "-posts-upcoming-events":
+    title: Upcoming Events
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+    _options:
+      content:
+        width: 1880
+        height: 1880
+        uploads_dir: "/images/posts/"
+- scope:
+    path: ''
+  values:
+    layout: default
+url: http://web.stanford.edu/group/christianstudent/
+baseurl: 
+google_analytics_key: 
+logo: http://web.stanford.edu/group/christianstudent/images/logo.svg
+description: website for Stanford Christian Students
+author:
+  name: 
+  email: 
+  twitter: 
+social:
+  name: stanfordchristianstudents
+  links:
+  - https://www.instagram.com/stanfordchristianstudents/
+  - https://www.facebook.com/stanfordchristianstudents/
+permalink: pretty
+future: true
+plugins:
+- jekyll-sitemap
+- jekyll-seo-tag
+exclude:
+- Gemfile
+- Gemfile.lock
+- README.md
+- LICENCE
+_options:
+  header_background_image:
+    width: 1880
+    height: 1880
+  newsletter_background_image:
+    width: 1880
+    height: 1880
+pagination:
+  enabled: true
+  debug: false
+  collection: posts
+  per_page: 6
+  permalink: "/:num/"
+  title: ":title - page :num"
+  limit: 0
+  sort_field: date
+  sort_reverse: true
+  category: posts
+  tag: 
+  locale: 
+  trail:
+    before: 2
+    after: 2
+  extension: html
+  indexpage: index
