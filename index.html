@@ -82,9 +82,9 @@ layout: default
 						// Event title
 						title: '{{post.title}}',
 						// Event start date
-						start: new Date('{{post.event_date|date:"%b %d, %Y"}} {{post.start_time|date: "%k:%M"}}'),
+						start: new Date('{{post.date|date:"%b %d, %Y"}} {{post.start_time|date: "%k:%M"}}'),
 						// Event end date
-						end: new Date('{{post.event_date|date:"%b %d, %Y"}} {{post.end_time|date: "%k:%M"}}'),     
+						end: new Date('{{post.date|date:"%b %d, %Y"}} {{post.end_time|date: "%k:%M"}}'),     
 						// Event Address
 						address:'{{post.location}}',
 						// Event Description
