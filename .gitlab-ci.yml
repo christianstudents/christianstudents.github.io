@@ -1,12 +1,20 @@
 image: ruby:2.6
 
+cache:
+  paths:
+  - vendor/
+
+before_script:
+  - bundle install
+
 pages:
   stage: deploy
-  script:
-  - bundle install
   - bundle exec jekyll build -d public
   artifacts:
     paths:
     - public
   only:
   - master
+  
+exclude:
+  - vendor
