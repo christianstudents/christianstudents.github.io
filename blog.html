@@ -9,7 +9,7 @@ pagination:
 <div class="container" id = "upcoming-events">
 	<h2 class="editable">Past Events</h2>
 	<div class="seconds">
-		{% for post in paginator.posts %}
+		{% for post in site.categories.previous-events %}
 		    <div class = "wrapper">
 		        <div>
 				    <img src="{{post.featured_image}}"/>
@@ -29,6 +29,7 @@ pagination:
 		{% endfor %}
 	</div>
 </div>
+<!-- 
 <div class = "container" style = "text-align: center">
 	{% if paginator.total_pages > 1 %}
 		{% if paginator.next_page %}
@@ -38,5 +39,5 @@ pagination:
 				<a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class = "buttonlink">Newer</a>
 		{% endif %}
 	{% endif %}
-</div>
+</div> -->
 
