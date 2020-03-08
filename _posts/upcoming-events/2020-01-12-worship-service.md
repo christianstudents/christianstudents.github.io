@@ -1,7 +1,7 @@
 ---
 title: Worship Service
 featured_image: "/uploads/Worship Service 2.png"
-date: 2020-03-08 08:00:00 +0000
+date: 2020-03-15 07:00:00 +0000
 start_time: 11:00 AM
 end_time: 12:00 PM
 location: Roble Hall Theater
