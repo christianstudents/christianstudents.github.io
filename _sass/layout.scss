@@ -1,3 +1,4 @@
+
 .container {
 	width: 100%;
 	margin: auto auto;
@@ -192,7 +193,46 @@ section {
 
 	}
 }
+
 .seconds{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	@media #{$desktop} {
+	    flex-direction:row;  
+	}
+	padding: 0;
+	list-style: none;
+
+	li {
+		box-sizing: border-box;
+		margin: 0px 0px;
+		width: 100%;
+		border: 1px solid #dfdfdf;
+		border-radius: 10px;
+		padding: 15px;
+        flex: 1 0 49%; 
+        margin: 5px;
+
+		text-align: center;
+
+		img {
+			display: inline-block;
+			background: white;
+			padding: 10px;
+			border-radius: 50px;
+		}
+        .post-content {
+			padding: 20px;
+		}
+		.event-info{
+			text-align: left;
+		}
+
+	}
+}
+
+.blog{
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
