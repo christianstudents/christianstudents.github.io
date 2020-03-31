@@ -1,11 +1,7 @@
 ---
 date: 1970-01-01 00:00:00 Z
-start_time: x:xx AM
-end_time: x:xx PM
-location: 
-featured_image: "/group/christianstudent/images/upcoming"
-short_description: short description about event
+featured_image: "/group/christianstudent/images/previous/"
 categories:
-- upcoming-events
+- previous-events
 ---
 

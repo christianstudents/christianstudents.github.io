@@ -5,12 +5,6 @@ collections:
   posts:
     title: Posts
     output: true
-  previous-events:
-    title: Previous Events
-    output: true
-  "-posts-upcoming-events":
-    title: Upcoming Events
-    output: true
   uploads:
     title: Uploads
     output: true
@@ -30,7 +24,6 @@ defaults:
   values:
     layout: default
 url: http://web.stanford.edu/group/christianstudent/
-baseurl: 
 google_analytics_key: 
 logo: http://web.stanford.edu/group/christianstudent/images/logo.svg
 description: website for Stanford Christian Students
@@ -48,6 +41,7 @@ future: true
 plugins:
 - jekyll-sitemap
 - jekyll-seo-tag
+- jekyll-paginate
 exclude:
 - Gemfile
 - Gemfile.lock
@@ -60,21 +54,5 @@ _options:
   newsletter_background_image:
     width: 1880
     height: 1880
-pagination:
-  enabled: true
-  debug: false
-  collection: posts
-  per_page: 6
-  permalink: "/:num/"
-  title: ":title - page :num"
-  limit: 0
-  sort_field: date
-  sort_reverse: true
-  category: posts
-  tag: 
-  locale: 
-  trail:
-    before: 2
-    after: 2
-  extension: html
-  indexpage: index
+paginate: 6
+paginate_path: "blog/page:num/"

@@ -186,6 +186,9 @@ section {
         .post-content {
 			padding: 20px;
 		}
+		.event-info{
+			text-align: left;
+		}
 
 	}
 }
@@ -545,4 +548,10 @@ input:checked {
 
 .cms-editor-active .editor-link {
    display: block;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
 }

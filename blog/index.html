@@ -1,15 +1,12 @@
 ---
-title: Previous Events
+title: Blog
 layout: default
-pagination:
-  enabled: true
-  category: previous-events
 ---
 
 <div class="container" id = "upcoming-events">
 	<h2 class="editable">Past Events</h2>
 	<div class="seconds">
-		{% for post in site.categories.previous-events %}
+		{% for post in paginator.posts %}
 		    <div class = "wrapper">
 		        <div>
 				    <img src="{{post.featured_image}}"/>
@@ -29,6 +26,23 @@ pagination:
 		{% endfor %}
 	</div>
 </div>
+<!-- Pagination links -->
+<div class="container" style = "text-align: center">
+	<div style="padding: 20px">
+		<span class="page_number ">
+			Page: {{ paginator.page }} of {{ paginator.total_pages }}
+		  </span>
+	</div>
+	<div>
+		{% if paginator.previous_page %}
+		<a href="{{ paginator.previous_page_path }}" class="buttonlink">Previous</a>
+		{% endif %}
+		{% if paginator.next_page %}
+		<a href="{{ paginator.next_page_path }}" class="buttonlink">Next</a>
+		{% endif %}
+	</div>
+  </div>
+
 <!-- 
 <div class = "container" style = "text-align: center">
 	{% if paginator.total_pages > 1 %}
