@@ -1,3 +1,7 @@
+html {
+	scroll-behavior: smooth;
+  }
+  
 html, body {
 	padding: 0;
 	margin: auto;
@@ -114,9 +118,4 @@ a.buttonlink{
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-}
-divider{
-    width:5px;
-    height:auto;
-    display:inline-block;
 }
