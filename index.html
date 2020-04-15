@@ -120,4 +120,25 @@ layout: default
 	</div>
 </div>
 
-
+<div class="container processing" id="recent-posts">
+	<h2 class="editable">Recent Posts</h2>
+	<div class="recent-ig">
+		<ul class="thirds">
+			{% for i in (0..5) %}
+				<li class="ig-post" data-ig-post-index="{{ i }}">
+					<img>
+					<h5 class="date">{% include icons/social-media.html social_icon="instagram" %} <span></span></h5>
+					<h4 class="interactions"><span class="likes"></span> <i class="fas fa-heart"></i> <span class="comments"></span> <i class="fas fa-comment"></i></h4>
+					<p class="caption">
+						<span class="preview"></span>
+						<!-- doesn't actually go anywhere, has an onclick handler -->
+						<a href="#showmore" class="more">show more</a>
+						<br>
+						<a class="link-orig-post" target="_parent">Original post<i class="fas fa-external-link-alt"></i></a>
+					</p>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<script type="text/javascript" src="{{site.baseurl}}/js/instagramfeed.js"></script>
+</div>
