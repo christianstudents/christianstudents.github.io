@@ -50,7 +50,8 @@ h5 {
 p {
   font-size: 1.2em;
   color: #1F2120;
-  line-height: 1.5em; }
+  line-height: 1.5em;
+  font-family: "Roboto", sans-serif; }
 
 a {
   color: #1F2120;
@@ -105,6 +106,9 @@ a.buttonlink {
   position: relative;
   padding: 15px;
   box-sizing: border-box; }
+
+#aboutus {
+  padding: 15px 50px; }
 
 @media (min-width: 992px) {
   header .container {
