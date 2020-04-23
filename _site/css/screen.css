@@ -106,8 +106,9 @@ a.buttonlink {
   padding: 15px;
   box-sizing: border-box; }
 
-#aboutus {
-  padding: 15px 50px; }
+@media (min-width: 1281px) {
+  #aboutus {
+    padding: 15px 50px; } }
 
 @media (min-width: 1281px) {
   header .container {
@@ -522,6 +523,16 @@ footer {
 .prev:hover, .next:hover {
   background-color: rgba(0, 0, 0, 0.8); }
 
+/* Caption text */
+.text {
+  color: #EE4749;
+  font-size: 20px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center; }
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -563,6 +574,16 @@ footer {
 
 .cms-editor-active .editor-link {
   display: block; }
+
+.calendar {
+  display: none; }
+  @media (min-width: 768px) {
+    .calendar {
+      display: block; } }
+
+@media (min-width: 768px) {
+  .calendar-mobile {
+    display: none; } }
 
 .divider {
   width: 5px;

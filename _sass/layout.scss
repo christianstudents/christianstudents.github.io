@@ -7,7 +7,9 @@
 	box-sizing: border-box;
 }
 #aboutus{
-	padding: 15px 50px
+	@media #{$desktop}{
+		padding: 15px 50px
+	}
 }
 
 header {
@@ -569,6 +571,16 @@ footer {
 	background-color: rgba(0,0,0,0.8);
   }
   
+  /* Caption text */
+.text {
+	color:$primary;
+	font-size: 20px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+  }
   
   /* Fading animation */
   .fade {
@@ -620,8 +632,21 @@ footer {
    display: block;
 }
 
+.calendar{
+	display: none;
+	@media #{$tablet} {
+		display: block;
+	}
+}
+.calendar-mobile{
+	@media #{$tablet} {
+		display: none;
+	}
+}
+
 .divider{
     width:5px;
     height:auto;
     display:inline-block;
 }
+
