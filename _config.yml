@@ -8,6 +8,9 @@ collections:
   uploads:
     title: Uploads
     output: true
+  testimonies:
+    output: true
+    sort_by: index
 defaults:
 - scope:
     path: ''

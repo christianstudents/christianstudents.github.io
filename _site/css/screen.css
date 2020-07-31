@@ -275,6 +275,11 @@ section {
       background: white;
       padding: 10px;
       border-radius: 50px; }
+    .seconds li video, .seconds li iframe {
+      display: inline-block;
+      padding: 10px;
+      border-radius: 50px;
+      width: 100%; }
     .seconds li .post-content {
       padding: 20px; }
     .seconds li .event-info {
@@ -589,3 +594,15 @@ footer {
   width: 5px;
   height: auto;
   display: inline-block; }
+
+.seemore {
+  display: block; }
+  .seemore.center {
+    text-align: center; }
+  .seemore.right {
+    text-align: right; }
+  .seemore a {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid blue; }
