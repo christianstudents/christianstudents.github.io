@@ -277,8 +277,7 @@ section {
       border-radius: 50px; }
     .seconds li video, .seconds li iframe {
       display: inline-block;
-      padding: 10px;
-      border-radius: 50px;
+      border-radius: 20px;
       width: 100%; }
     .seconds li .post-content {
       padding: 20px; }
@@ -364,6 +363,25 @@ section {
     vertical-align: middle; }
   #recent-posts .ig-post .date svg {
     fill: #888; }
+
+.readingPreviewcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .readingPreviewcontainer .readingPreview {
+    width: 100%;
+    height: 40em;
+    justify-content: center;
+    margin: 5% 0; }
+  @media (min-width: 1281px) {
+    .readingPreviewcontainer {
+      flex-direction: row;
+      height: 40em; }
+      .readingPreviewcontainer .readingPreview {
+        width: 20%;
+        height: 100%;
+        justify-content: center;
+        margin: 0 5%; } }
 
 footer {
   background: #1F2120;
