@@ -1,0 +1,30 @@
+---
+title: More Testimonies
+layout: default
+permalink: "/media/testimonies"
+---
+<div class="container">
+    <h2 class="editable" style="text-align: center;">
+        Testimonies
+    </h2>
+    <!--<p class="editable" style="text-align: center;">
+        Acts 2:46 - "And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart"
+    </p>-->
+    <ul class="seconds">
+        {%- assign testimonies = site.media | where: "type", "testimony" -%}
+        {% for testimony in testimonies %}
+            <li>
+                <video src="./videos/{{ testimony.video }}" controls></video>
+                <h3 class="editable">
+                    {{ testimony.name }}
+                </h3>
+                <p class="editable">
+                    {{ testimony.description }}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="seemore right">
+        <a>See more!</a>
+    </div>
+</div>

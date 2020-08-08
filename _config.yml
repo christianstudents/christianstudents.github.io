@@ -8,7 +8,7 @@ collections:
   uploads:
     title: Uploads
     output: true
-  testimonies:
+  media:
     output: true
     sort_by: index
 defaults:
@@ -50,6 +50,7 @@ exclude:
 - Gemfile.lock
 - README.md
 - LICENCE
+- vendor
 _options:
   header_background_image:
     width: 1880

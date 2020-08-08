@@ -1,0 +1,28 @@
+---
+title: Readings
+permalink: "/media/readings"
+layout: default
+---
+<div class="container">
+    <h2 class="editable" style="text-align: center;">
+        Readings
+    </h2>
+    <!--<p class="editable" style="text-align: center;">
+        Acts 2:46 - "And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart"
+    </p>-->
+    <ul class="seconds">
+        {%- assign readings = site.media | where: "type", "reading" -%}
+        {% for reading in readings %}
+            <li>
+                <a style="display:inline-block;width:100%;border:1px solid #AAA" href="https://drive.google.com/file/d/{{ reading.drive_id }}/view" target="_blank">
+                    <iframe style="pointer-events:none;display:block" src="https://drive.google.com/file/d/{{ reading.drive_id }}/preview"></iframe>
+                </a>
+                <h3>{{ reading.title }}</h3>
+                {% if reading.description %}
+                <p>{{ reading.description }}</p>
+                {% endif %}
+                <a href="https://drive.google.com/file/d/{{ reading.drive_id }}/view">Read more &gt;</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

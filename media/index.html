@@ -1,0 +1,93 @@
+---
+title: Stanford Christian Students
+layout: default
+---
+
+<!--------------------------------- testimonies------------------------------------------------------------------------------------------------------------------------->
+<div class="container">
+    <h2 class="editable" style="text-align: center;">
+        Testimonies
+    </h2>
+    <!--<p class="editable" style="text-align: center;">
+        Acts 2:46 - "And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart"
+    </p>-->
+    <ul class="seconds">
+        {%- assign testimonies = site.media | where: "type", "testimony" -%}
+        {% for testimony in testimonies limit:2 %}
+            <li>
+                <video src="./videos/{{ testimony.video }}" controls></video>
+                <h3 class="editable">
+                    {{ testimony.name }}
+                </h3>
+                <p class="editable">
+                    {{ testimony.description }}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="seemore right">
+        <a>See more!</a>
+    </div>
+    
+</div>
+<!--------------------------------- Music ------------------------------------------------------------------------------------------------------------------------->
+<div class="container">
+    <h2 class="editable" style="text-align: center;">
+        Music & Videos
+    </h2>
+    <!--<p class="editable" style="text-align: center;">
+        Acts 2:46 - "And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart"
+    </p>-->
+    <ul class="seconds">
+        <li>
+            <iframe src="https://open.spotify.com/embed?uri=spotify%3Aplaylist%3A37i9dQZF1DWTUm9HjVUKnL" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <h3 class="editable">
+                Spotify
+            </h3>
+            <p class="editable">
+                Enjoy our personal lists of fav gospel songs!
+            </p>
+            <div class="seemore">
+                <a>Go to spotify</a>
+            </div>
+        </li>
+<!--------------------------------- Videos------------------------------------------------------------------------------------------------------------------------->
+        <li>
+            <video src="./videos/sample-mp4-file.mp4" controls></video>
+            <h3 class="editable">
+                Christian
+            </h3>
+            <p class="editable">
+                Meet in a small group to read and enjoy the Word of God. Times are flexible to meet your schedule.
+            </p>
+            <div class="seemore">
+                <a href="">See more!</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!--------------------------------- Readings------------------------------------------------------------------------------------------------------------------------->
+<div class="container" id="upcoming-events" >
+    <h2 class="editable">
+        Readings
+    </h2>
+    <div class="readingPreviewcontainer">
+        {%- assign readings = site.media | where: "type", "reading" -%}
+        {% for reading in readings limit: 3 %}
+            <a class="readingPreview" href="https://drive.google.com/file/d/{{ reading.drive_id }}/view" target="_blank">
+                <iframe class="readingPreview" src="https://drive.google.com/file/d/{{ reading.drive_id }}/preview" ></iframe>
+                <div></div>
+            </a>
+        {% endfor %}
+    </div>
+    <div class="seemore right">
+        <a href="./readings">See more!</a>
+    </div>
+</div>
+
+<!--------------------------------- Podcasts------------------------------------------------------------------------------------------------------------------------->
+
+<div class="container processing" id="recent-posts">
+    <h2 class="editable">Podcasts</h2>
+</div>
