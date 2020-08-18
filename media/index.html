@@ -1,9 +1,36 @@
 ---
 title: Stanford Christian Students
 layout: default
+
+# List of dicts representing the testimonies to show. (2 by default)
+# id: the YouTube video ID located at the end of the video's URL
+# name: the name of the person in the testimony, presented directly underneath the video
+# [description]: an optional description to show underneath the name
+testimonies:
+  - id: xurgKUjmMjM
+    name: Dr. Scott Finnie
+    description: An optional description.
+  - id: o6OZooV_qLY
+    name: Someone Else
+
+# List of dicts representing the videos to show. (2 by default)
+# id: the YouTube video ID located at the end of the video's URL
+# title: a title describing the video, presented directly underneath the video
+# [description]: an optional description to show underneath the title
+videos:
+  - id: RcKzTYjL6IA
+    title: I am Tree
+    description: An optional description here too.
+
+# List of dicts representing the readings to show.
+# id: the Google Drive file ID located near the end of the file's URL
+readings:
+  - id: 1kxRJaH0zps9qrjDRHrSHbejyagRnqgHd
+  - id: 1kxRJaH0zps9qrjDRHrSHbejyagRnqgHd
+  - id: 1kxRJaH0zps9qrjDRHrSHbejyagRnqgHd
 ---
 
-<!--------------------------------- testimonies------------------------------------------------------------------------------------------------------------------------->
+<!-- Testimonies -->
 <div class="container">
     <h2 class="editable" style="text-align: center;">
         Testimonies
@@ -12,25 +39,29 @@ layout: default
         Acts 2:46 - "And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart"
     </p>-->
     <ul class="seconds">
-        {%- assign testimonies = site.media | where: "type", "testimony" -%}
-        {% for testimony in testimonies limit:2 %}
+        {% for testimony in page.testimonies %}
             <li>
-                <video src="./videos/{{ testimony.video }}" controls></video>
-                <h3 class="editable">
+                <div class="mediaAspectRatioContainer">
+                    <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/{{ testimony.id }}?ecver=1&amp;iv_load_policy=1&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red" allowtransparency="true" frameborder="0"></iframe>
+                    <div></div>
+                </div>
+                <h3>
                     {{ testimony.name }}
                 </h3>
-                <p class="editable">
+                {%- if testimony.description != nil -%}
+                <p>
                     {{ testimony.description }}
                 </p>
+                {%- endif -%}
             </li>
         {% endfor %}
     </ul>
-    <div class="seemore right">
-        <a>See more!</a>
+    <div class="seemore">
+        <a class="buttonlink">See more!</a>
     </div>
     
 </div>
-<!--------------------------------- Music ------------------------------------------------------------------------------------------------------------------------->
+<!-- Music -->
 <div class="container">
     <h2 class="editable" style="text-align: center;">
         Music & Videos
@@ -40,7 +71,10 @@ layout: default
     </p>-->
     <ul class="seconds">
         <li>
-            <iframe src="https://open.spotify.com/embed/playlist/6TV0UDZQOT9snNfihtk5x9" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <div class="mediaAspectRatioContainer">
+                <iframe src="https://open.spotify.com/embed/playlist/6TV0UDZQOT9snNfihtk5x9" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <div></div>
+            </div>
             <h3 class="editable">
                 Spotify
             </h3>
@@ -48,45 +82,50 @@ layout: default
                 Enjoy our personal lists of fav gospel songs!
             </p>
             <div class="seemore">
-                <a>Go to spotify</a>
+                <a class="buttonlink">See more!</a>
             </div>
         </li>
-<!--------------------------------- Videos------------------------------------------------------------------------------------------------------------------------->
+        <!-- Videos -->
         <li>
-            <video src="./videos/sample-mp4-file.mp4" controls></video>
-            <h3 class="editable">
-                Christian
+            {% for video in page.videos %}
+            <div class="mediaAspectRatioContainer">
+                <iframe allowFullScreen="allowFullScreen" src="https://www.youtube.com/embed/{{ video.id }}?ecver=1&amp;iv_load_policy=1&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red" allowtransparency="true" frameborder="0"></iframe>
+                <div></div>
+            </div>
+            <h3>
+                {{ video.title }}
             </h3>
-            <p class="editable">
-                Meet in a small group to read and enjoy the Word of God. Times are flexible to meet your schedule.
+            {%- if video.description != nil -%}
+            <p>
+                {{ video.description }}
             </p>
+            {%- endif -%}
+            {% endfor %}
             <div class="seemore">
-                <a href="">See more!</a>
+                <a class="buttonlink">See more!</a>
             </div>
         </li>
     </ul>
 </div>
-
-<!--------------------------------- Readings------------------------------------------------------------------------------------------------------------------------->
+<!-- Readings -->
 <div class="container" id="upcoming-events" >
     <h2 class="editable">
         Readings
     </h2>
     <div class="readingPreviewcontainer">
-        {%- assign readings = site.media | where: "type", "reading" -%}
-        {% for reading in readings limit: 3 %}
-            <a class="readingPreview" href="https://drive.google.com/file/d/{{ reading.drive_id }}/view" target="_blank">
-                <iframe class="readingPreview" src="https://drive.google.com/file/d/{{ reading.drive_id }}/preview" ></iframe>
+        {% for reading in page.readings %}
+            <a class="readingPreview mediaAspectRatioContainer" href="https://drive.google.com/file/d/{{ reading.id }}/view" target="_blank">
+                <iframe src="https://drive.google.com/file/d/{{ reading.id }}/preview" ></iframe>
                 <div></div>
             </a>
         {% endfor %}
     </div>
-    <div class="seemore right">
-        <a href="./readings">See more!</a>
+    <div class="seemore">
+        <a class="buttonlink">See more!</a>
     </div>
 </div>
 
-<!--------------------------------- Podcasts------------------------------------------------------------------------------------------------------------------------->
+<!-- Podcasts -->
 
 <div class="container processing" id="recent-posts">
     <h2 class="editable">Podcasts</h2>
