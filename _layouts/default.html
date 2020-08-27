@@ -23,11 +23,10 @@
             <span class="navbar-toggle" id="js-navbar-toggle">
                     <i class="fa fa-bars" style = "color: $primary"></i>
 				</span>
-				<img src = "{{ site.baseurl }}/images/logo.png" class = "logo">
+				<a href="{{ site.baseurl }}/" >
+					<img src = "{{ site.baseurl }}/images/logo.png" class = "logo">
+				</a>
             <ul class="main-nav" id="js-menu">
-              <li>
-                <a href="{{ site.baseurl }}/" class="nav-links">HOME</a>
-              </li>
               <li>
                 <a href="{{ site.baseurl }}/aboutus/" class="nav-links">ABOUT</a>
 			  </li>
@@ -40,9 +39,9 @@
 			  <li>
                 <a href="{{ site.baseurl }}/media/" class="nav-links">MEDIA</a>
               </li>
-			  <li>
+			  <!-- <li>
                 <a href="{{ site.baseurl }}/blog/index.html" class="nav-links">BLOG</a>
-              </li>
+              </li> -->
               <li>
                 <a href="{{ site.baseurl }}/contact/" class="nav-links">CONTACT</a>
 			  </li>
