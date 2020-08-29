@@ -15,7 +15,6 @@ $container-padding: 15px;
 }
 
 header {
-
 	@media #{$desktop} {
 		.container {
 			display: flex;
@@ -37,35 +36,145 @@ header {
 			}
 		}
 	}
+}
 
-	img {
-		margin: 0 auto 0 auto;
-		display: block;
-		max-width: 100%;
+#navbar {
+	$navbar-toggle-size: 2rem;
+
+	display: flex;
+	flex-direction: column;
+	background: $primary;
+
+	#logo {
+		a {
+			display: block;
+			text-align: center;
+			padding: 1rem;
+
+			svg {
+				height: 10em;
+				max-width: calc(100% - #{$navbar-toggle-size}) - 2rem;
+			}
+		}
+	}
+
+	#nav-links {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		margin-top: -$navbar-toggle-size - .5rem;
+		padding-bottom: 1rem;
+
+		#navbar-toggle-display {
+			color: white;
+			display: block;
+			height: $navbar-toggle-size;
+			width: $navbar-toggle-size;
+			margin-right: .5rem;
+
+			div {
+				height: $navbar-toggle-size * .15;
+				width: $navbar-toggle-size;
+				background-color: white;
+				border-radius: $navbar-toggle-size * .15 / 2;
+
+				&:nth-child(1) {
+					transform: translateY($navbar-toggle-size * .175)
+				}
+
+				&:nth-child(2) {
+					transform: translateY($navbar-toggle-size * .275)
+				}
+
+				&:nth-child(3) {
+					transform: translateY($navbar-toggle-size * .375)
+				}
+			}
+		}
+
+		#navbar-toggle {
+			height: $navbar-toggle-size;
+			width: $navbar-toggle-size;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			opacity: 0;
+			z-index: 1;
+
+			&:checked ~ #main-nav {
+				display: block;
+			}
+		}
+
+		#main-nav {
+			display: none;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+
+			.nav-link {
+				display: block;
+				width: 100%;
+				text-align: center;
+				text-transform: uppercase;
+				font-family: "Fjalla One", sans-serif;
+				font-size: 1.5rem;
+				padding: .5rem 0;
+			}
+		}
+	}
+
+	a {
+		color: white;
 	}
 }
 
-.logo {
-  display: block;
-  height: 150px;
-}
+@media #{$tablet} {
+	#navbar {
+		flex-direction: row;
+		align-items: stretch;
+		justify-content: space-between;
 
-.navbar {
-  font-size: 1.2em;
-  background: white;
-  padding-bottom: 15px;
-}
+		#logo a svg {
+			height: 5em;
+		}
 
-.main-nav {
-  list-style-type: none;
-  display: none;
-  padding: 0px;
-}
+		#nav-links {
+			margin-top: initial;
+			padding-bottom: initial;
 
-.main-nav li {
-  text-align: center;
-  margin: 15px auto;
-  padding-bottom: 25px;
+			#navbar-toggle,
+			#navbar-toggle-display {
+				display: none;
+			}
+
+			#main-nav {
+				list-style-type: none;
+				display: flex;
+				height: 100%;
+
+				.nav-link {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					padding: 1rem 1.5rem;
+				}
+			}
+		}
+
+		a {
+			color: white;
+			display: block;
+			cursor: pointer;
+			height: 100%;
+
+			&:hover,
+			&:focus {
+				background-color: transparentize(black, .9);
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 .navbar-toggle {
@@ -76,30 +185,17 @@ header {
   font-size: 36px;
 }
 
-.nav-links {
-	color: $secondary;
-	font-family: 'Fjalla One', sans-serif;
-	font-size: 1.5em;
-  }
-
 .active {
   display: block;
 }
 
 @media #{$desktop} {
-  .navbar {
-    display: flex;
-    padding-bottom: 0;
-    align-items: baseline;
-    padding: 15px 15px 0px 15px;
-    
-  }
 
   .main-nav {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    width: 100%;
+    flex-grow: 1;
 	margin: 0px;
   }
 
@@ -110,11 +206,6 @@ header {
 
   .navbar-toggle {
     display: none;
-  }
-
-  .logo:hover,
-  .nav-links:hover {
-    color: $primary;
   }
 }
 section {
