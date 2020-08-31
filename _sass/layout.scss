@@ -98,8 +98,10 @@ header {
 			margin: 0;
 			padding: 0;
 			position: absolute;
+			right: .5rem;
 			opacity: 0;
 			z-index: 1;
+			cursor: pointer;
 
 			&:checked ~ #main-nav {
 				display: block;
@@ -565,6 +567,7 @@ footer {
 			display: flex;
 			text-align: center;
 		}
+
 		div {
 			@media #{$desktop} {
 				width: 33%;
@@ -573,7 +576,6 @@ footer {
 			margin: 20px 0;
 			box-sizing: content-box;
 			padding: 0 25px;
-
 		}
 	}
 }

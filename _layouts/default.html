@@ -58,18 +58,18 @@
 				</nav>
 				</div>
 		</header>
-		<div class="content">
+		<div class="content" style="width:calc(100vw - 2em); max-width: 80em; margin: auto;">
 			{{ content }}
 		</div>
 		<footer>
 			<div class="container">
-					<div class="contact">
-							<p class="phone">
-								<a href="tel:{{ site.data.company.phone | replace: ' ', '-' }}">
-									{% include icons/footer.html icon="phone" %} {{ site.data.company.phone }}
-								</a>
-							</p>
-						</div>
+				<div class="contact">
+						<p class="phone">
+							<a href="tel:{{ site.data.company.phone | replace: ' ', '-' }}">
+								{% include icons/footer.html icon="phone" %} {{ site.data.company.phone }}
+							</a>
+						</p>
+					</div>
 				<div class="contact">
 					<p class="email">
 						<a href="mailto:{{ site.data.company.email }}">
@@ -77,7 +77,6 @@
 						</a>
 					</p>
 				</div>
-
 				<div class="sharing">
 					<a class="facebook" href="https://instagram.com/{{ site.data.company.instagram}}" target="_parent">
 						{% include icons/social-media.html social_icon="instagram" %}{{ site.data.company.instagram }}
@@ -85,10 +84,10 @@
 				</div>
 
 				<div class="sharing">
-						<a class="facebook" href="https://facebook.com/{{ site.data.company.facebook}}" target="_parent">
-							{% include icons/social-media.html social_icon="facebook" %}{{ site.data.company.facebook }}
-						</a>
-					</div>
+					<a class="facebook" href="https://facebook.com/{{ site.data.company.facebook}}" target="_parent">
+						{% include icons/social-media.html social_icon="facebook" %}{{ site.data.company.facebook }}
+					</a>
+				</div>
 			</div>
 		</footer>
 		<p class="copyright">
