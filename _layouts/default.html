@@ -63,36 +63,39 @@
 		</div>
 		<footer>
 			<div class="container">
-				<div class="contact">
+				<div>
+					<div class="contact">
 						<p class="phone">
 							<a href="tel:{{ site.data.company.phone | replace: ' ', '-' }}">
 								{% include icons/footer.html icon="phone" %} {{ site.data.company.phone }}
 							</a>
 						</p>
 					</div>
-				<div class="contact">
-					<p class="email">
-						<a href="mailto:{{ site.data.company.email }}">
-							{% include icons/footer.html icon="email" %} {{ site.data.company.email }}
+					<div class="contact">
+						<p class="email">
+							<a href="mailto:{{ site.data.company.email }}">
+								{% include icons/footer.html icon="email" %} {{ site.data.company.email }}
+							</a>
+						</p>
+					</div>
+				</div>
+				<p class="copyright">
+					©2020 Stanford Christian Students
+				</p>
+				<div>
+					<div class="sharing">
+						<a class="facebook" href="https://instagram.com/{{ site.data.company.instagram}}" target="_parent">
+							{% include icons/social-media.html social_icon="instagram" %}{{ site.data.company.instagram }}
 						</a>
-					</p>
-				</div>
-				<div class="sharing">
-					<a class="facebook" href="https://instagram.com/{{ site.data.company.instagram}}" target="_parent">
-						{% include icons/social-media.html social_icon="instagram" %}{{ site.data.company.instagram }}
-					</a>
-				</div>
-
-				<div class="sharing">
-					<a class="facebook" href="https://facebook.com/{{ site.data.company.facebook}}" target="_parent">
-						{% include icons/social-media.html social_icon="facebook" %}{{ site.data.company.facebook }}
-					</a>
+					</div>
+					<div class="sharing">
+						<a class="facebook" href="https://facebook.com/{{ site.data.company.facebook}}" target="_parent">
+							{% include icons/social-media.html social_icon="facebook" %}{{ site.data.company.facebook }}
+						</a>
+					</div>
 				</div>
 			</div>
 		</footer>
-		<p class="copyright">
-			©2020 Stanford Christian Students
-		</p>
 		<script type="text/javascript" src="{{site.baseurl}}/js/slideshow.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</body>
