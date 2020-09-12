@@ -289,6 +289,13 @@ section {
 		}
 		.event-info{
 			text-align: left;
+			.event-title{
+				color: $tiertiary;
+				margin-bottom: -15px;
+			}
+			.event-time{
+				font-size: 1.0em;
+			}
 		}
 
 	}
