@@ -8,6 +8,8 @@ html, body {
 	font-family: 'Montserrat', sans-serif;
 	color: $secondary;
 	min-width: 380px;
+	min-height: 100%;
+	background-color: $secondary;
 }
 
 img {
@@ -86,6 +88,11 @@ input[type=text], select, textarea {
   font-family: 'Montserrat', sans-serif;
 }
 
+#mc-embedded-subscribe#mc-embedded-subscribe {
+	background-color: $primary;
+}
+
+
 input[type=submit] {
   background-color: $primary;
   color: white;
@@ -95,8 +102,9 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: darken($primary, 5%);
+input[type=submit]:hover,
+#mc-embedded-subscribe#mc-embedded-subscribe:hover {
+  background-color: darken($primary, 30%);
 }
 }
 

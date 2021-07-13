@@ -23,6 +23,6 @@ Contents:
 
 Getting Started:
 1. Connect to Github repository (git clone https://github.com/christianstudents/christianstudents.github.io.git)
-2. Install Jekyll - https://jekyllrb.com/ 
+2. Install Jekyll - https://jekyllrb.com/ ----> run command: gem install bundler jekyll
 3. Run the following command to install missing gems (may not need this step, but if below throws an error that indicates missing gems, run this): bundle install
 4. Run the following command to run locally: bundle exec jekyll serve
