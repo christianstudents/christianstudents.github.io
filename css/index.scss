@@ -1,0 +1,86 @@
+---
+---
+
+@import "variables";
+@import "css-functions";
+
+#welcome {
+    $youtube-video-aspect-ratio: 2 / 1;
+    $youtube-video-width-proportion: 0.5;
+
+    margin: 0 #{-$page-side-padding};
+
+    > div {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        > div:first-child {
+            display: flex;
+            flex-direction: row;
+            background-color: $color-primary;
+            color: $color-mono-lightest;
+            padding: 0 $page-side-padding;
+
+            > div:first-child {
+                width: css-min(40em, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion}));
+                flex-grow: 0;
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                > div {
+                    flex-grow: 1;
+                    max-height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+                    position: relative;
+
+                    iframe {
+                        width: css-min(40em, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion}));
+                        height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+                        position: absolute;
+                        border-radius: 1em;
+                    }
+                }
+            }
+
+            > div:last-child {
+                margin-left: 3em;
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: 0;
+                line-height: 1.5;
+
+                h1 {
+                    font-size: 2.25em;
+                    margin: 0;
+                    line-height: 1.2;
+                }
+
+                p {
+                    line-height: 1.5;
+                    margin: 1em 0;
+                }
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    font-weight: bold;
+                    cursor: pointer;
+
+                    &:hover, &:focus {
+                        text-decoration: underline;
+                    }
+
+                    i {
+                        margin-left: .25em;
+                    }
+                }
+            }
+        }
+
+        > div:last-child {
+            height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+        }
+    }
+}

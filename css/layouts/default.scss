@@ -1,0 +1,119 @@
+---
+---
+
+@import "variables";
+
+html, body {
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+    background-color: $color-mono-lightest;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background-color: $color-primary;
+    color: $color-mono-lightest;
+    padding: 2em 4em 2em 4em;
+
+    #logo {
+        a {
+            display: block;
+            text-align: center;
+            color: inherit;
+            line-height: 0;
+
+            &:hover svg mask,
+            &:focus svg mask {
+                rect {
+                    fill: white;
+                }
+                path {
+                    fill: black;
+                }
+            }
+
+            svg {
+                width: 6em;
+                fill: currentColor;
+
+                mask {
+                    rect {
+                        fill: black;
+                    }
+                    path {
+                        fill: white;
+                    }
+                }
+            }
+        }
+    }
+
+    #nav-toggle {
+        margin-right: .5rem;
+        color: $color-primary;
+
+        &:before {
+            content: "";
+            display: block;
+            background-color: currentColor;
+        }
+
+        ~ input {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            margin-right: .5rem;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+    }
+
+    #nav-links {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li a {
+            color: inherit;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            padding: 0 .75em;
+            text-align: center;
+            font-size: 1em;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    #nav-link-ig a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        padding: 0 .75em;
+        color: inherit;
+
+        svg {
+            height: 1.25em;
+            fill: currentColor;
+        }
+    }
+}
+
+#content-container {
+    padding: 0 $page-side-padding;
+}
