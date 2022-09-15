@@ -7,8 +7,9 @@
 #welcome {
     $youtube-video-aspect-ratio: 2 / 1;
     $youtube-video-width-proportion: 0.5;
+    $youtube-video-mobile-overflow: 0.2;
 
-    margin: 0 #{-$page-side-padding};
+    margin: 0 #{-$page-side-padding-desktop};
 
     > div {
         display: flex;
@@ -20,10 +21,10 @@
             flex-direction: row;
             background-color: $color-primary;
             color: $color-mono-lightest;
-            padding: 0 $page-side-padding;
+            padding: 0 #{$page-side-padding-desktop};
 
             > div:first-child {
-                width: css-min(40em, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion}));
+                width: css-min(40em, calc((100vw - #{2 * $page-side-padding-desktop} - 3em) * #{$youtube-video-width-proportion}));
                 flex-grow: 0;
                 flex-shrink: 0;
                 display: flex;
@@ -32,15 +33,28 @@
 
                 > div {
                     flex-grow: 1;
-                    max-height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+                    max-height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding-desktop} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
                     position: relative;
 
                     iframe {
-                        width: css-min(40em, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion}));
-                        height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+                        width: css-min(40em, calc((100vw - #{2 * $page-side-padding-desktop} - 3em) * #{$youtube-video-width-proportion}));
+                        height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding-desktop} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
                         position: absolute;
                         border-radius: 1em;
+
+                        @media #{$mobile} {
+                            width: css-min(40em, calc((100vw - #{2 * $page-side-padding-mobile})));
+                            height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $youtube-video-aspect-ratio}));
+                        }
                     }
+
+                    @media #{$mobile} {
+                        max-height: initial;
+                    }
+                }
+
+                @media #{$mobile} {
+                    height: css-min(40em / $youtube-video-aspect-ratio * #{1 - $youtube-video-mobile-overflow}, calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $youtube-video-aspect-ratio} * #{1 - $youtube-video-mobile-overflow}));
                 }
             }
 
@@ -55,6 +69,10 @@
                     font-size: 2.25em;
                     margin: 0;
                     line-height: 1.2;
+
+                    @media #{$mobile} {
+                        margin-top: .5em;
+                    }
                 }
 
                 p {
@@ -76,11 +94,32 @@
                         margin-left: .25em;
                     }
                 }
+
+                @media #{$mobile} {
+                    margin-left: 0;
+                }
+            }
+
+            @media #{$mobile} {
+                flex-direction: column-reverse;
+                padding: 0 #{$page-side-padding-mobile};
             }
         }
 
         > div:last-child {
-            height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+            height: css-min(40em / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding-desktop} - 3em) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+
+            @media #{$mobile} {
+                height: css-min(40em / $youtube-video-aspect-ratio * #{$youtube-video-mobile-overflow}, calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $youtube-video-aspect-ratio} * #{$youtube-video-mobile-overflow}));
+            }
         }
+
+        @media #{$mobile} {
+            flex-direction: column;
+        }
+    }
+
+    @media #{$mobile} {
+        margin: 0 #{-$page-side-padding-mobile};
     }
 }

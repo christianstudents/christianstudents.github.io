@@ -10,7 +10,7 @@ fonts:
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% seo %}
         <meta name="google-site-verification" content="wuFuPHvQNh6a1R64H_l3Sweh0oC7QJfYbRBp5QM12HM" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
@@ -28,7 +28,10 @@ fonts:
     </head>
     <body>
         <header>
+            <input id="nav-toggle" type="checkbox">
+            <label id="nav-toggle-outer" for="nav-toggle" class="fa fa-bars"></label>
             <nav>
+                <label id="nav-toggle-inner" for="nav-toggle" class="fa fa-xmark"></label>
                 <div id="logo">
                     <a href="{{ site.baseurl }}/">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 885.5 611.7">
@@ -40,7 +43,6 @@ fonts:
                         </svg>
                     </a>
                 </div>
-                <div style="flex-grow: 1"></div>
                 <ul id="nav-links">
                     <li>
                         <a href="{{ site.baseurl }}/events">Events</a>
@@ -63,6 +65,7 @@ fonts:
                     </a>
                 </div>
             </nav>
+            <label id="nav-toggle-back" for="nav-toggle"></label>
         </header>
         <div id="content-container">
             {{ content }}
