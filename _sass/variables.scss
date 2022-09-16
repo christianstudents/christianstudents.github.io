@@ -13,5 +13,14 @@ $color-mono-light: #CDCFCF;
 $color-mono-lighter: #EDEEEE;
 $color-mono-lightest: #FFFFFF;
 // $color-mono-dark: #DEADBEEF;
-// $color-mono-darker: #DEADBEEF;
-$color-mono-darkest: #1F2120;
+$color-mono-darker: #1F2120;
+$color-mono-darkest: #000000;
+
+$Karla: 'Karla', sans-serif;
+
+%button {
+    padding: .75em 1em;
+    border-radius: 1.5em;
+    border: 0;
+    cursor: pointer;
+}

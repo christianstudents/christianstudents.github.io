@@ -3,8 +3,14 @@ title: Stanford Christian Students
 layout: default
 styles:
   - index.css
+  - upcoming-events-widget.css
 scripts:
-  - index.js
+  - upcoming-events-widget.js
+fonts:
+  - Karla:
+    - 400
+    - 500
+    - 700
 ---
 
 <section id="welcome">
@@ -18,10 +24,18 @@ scripts:
             <div>
                 <h1>Welcome</h1>
                 <p>Stanford Christian Students is a community that welcomes all students to read the word of God, to grow in Christ, and to pursue fellowship with us on campus. For our events, we hold weekly Bible studies, host on-campus worship services, and enjoy group gatherings together.</p>
-                <p><a href="{{ site.baseurl }}/about">Read more about us<i class="fa fa-chevron-right"></i></a></p>
-                <p><a href="{{ site.baseurl }}/welcome">To the class of 2026<i class="fa fa-chevron-right"></i></a></p>
+                <div>
+                    <a href="{{ site.baseurl }}/about"><span>Read more about us</span></a>
+                    <a href="{{ site.baseurl }}/welcome"><span>To the class of 2026</span></a>
+                </div>
             </div>
         </div>
         <div></div>
+    </div>
+</section>
+<section id="upcoming-events">
+    <a><h2>Upcoming events<i class="fa fa-chevron-right"></i></h2></a>
+    <div class="upcoming-events-widget upcoming-events-widget--loading">
+        <div class="upcoming-events-widget__loading">Loading...</div>
     </div>
 </section>
