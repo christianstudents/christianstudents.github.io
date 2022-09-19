@@ -13,3 +13,10 @@
 
     @return $string;
 }
+
+/// Returns the unit of a value, or "" if there is no unit.
+/// @param {unit} $value The value to extract the unit from
+/// @returns {string} The unit of the value
+@function get-unit($value) {
+    @return str-slice($value * 0 + "", 2, -1);
+}

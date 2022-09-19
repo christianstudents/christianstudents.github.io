@@ -182,7 +182,7 @@ void (function() {
         const now = new Date();
         const today = normalizedDate(now);
         // Only look for events in the next two months.
-        const eventTimeLimit = new Date(today.getFullYear(), today.getMonth() + 2, today.getDate());
+        const eventTimeLimit = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
 
         const CALENDAR_ID = '3d4later8u72ivm5lp2v9u10u0@group.calendar.google.com';
         const CALENDAR_API_KEY = 'AIzaSyAZPKKvjU7wLdPxD7yLGeSTzKSdw4aOzAs';
@@ -193,8 +193,7 @@ void (function() {
             timeMin: now.toISOString(),
             timeMax: eventTimeLimit.toISOString(),
             orderBy: 'startTime',
-            // Limit to 7 events.
-            maxResults: '7',
+            maxResults: '30',
         });
 
         const widgetContainers = document.getElementsByClassName('upcoming-events-widget');
@@ -347,8 +346,15 @@ void (function() {
                     // Clear the widget container's children.
                     widgetContainers[i].textContent = '';
 
+                    /** @type {HTMLDivElement} */
+                    // @ts-ignore
                     const clone = div.cloneNode(true);
-                    clone.lastElementChild.addEventListener('click', createWidgets);
+
+                    /** @type {HTMLButtonElement} */
+                    // @ts-ignore
+                    const button = clone.querySelector('button');
+                    button.addEventListener('click', createWidgets);
+
                     widgetContainers[i].appendChild(clone);
                 }
             }).finally(() => {

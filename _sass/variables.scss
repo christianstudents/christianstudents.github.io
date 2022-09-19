@@ -6,6 +6,7 @@ $desktop: "(min-width: 1281px)";
 
 $page-side-padding-desktop: 5rem;
 $page-side-padding-mobile: 1rem;
+$page-column-separation: 3.5rem;
 
 $color-primary: #DD5450;
 $color-secondary: #F6BE6A;
@@ -18,9 +19,76 @@ $color-mono-darkest: #000000;
 
 $Karla: 'Karla', sans-serif;
 
-%button {
+%button-base {
     padding: .75em 1em;
     border-radius: 1.5em;
     border: 0;
     cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .9rem;
+
+    &:not(.fa):not(.fa-regular):not(.fa-brands):not(.fa-solid):not(.fa-light) {
+        font-family: inherit;
+    }
+}
+
+%button-hover-shadow {
+    @extend %button-base;
+    transition: box-shadow .15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 .25em .25em 0 rgba(0,0,0,.25);
+    }
+}
+
+%button-hover-darken {
+    @extend %button-base;
+    transition: background-color .15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        background-color: rgba(0,0,0,.1);
+    }
+
+    &:active {
+        background-color: rgba(0,0,0,.25);
+    }
+}
+
+@mixin minor-column-base($percentage: 50%) {
+    flex-basis: calc(#{$percentage} - #{$page-column-separation});
+}
+
+@mixin minor-column($side, $percentage: 50%) {
+    @include minor-column-base($percentage);
+    @if $side == left {
+        padding-right: $page-column-separation;
+
+        @media #{$mobile} {
+            padding-right: 0;
+            flex-basis: initial;
+        }
+    } @else if $side == right {
+        padding-left: $page-column-separation;
+
+        @media #{$mobile} {
+            padding-left: 0;
+            flex-basis: initial;
+        }
+    }
+}
+
+@mixin major-column-base($percentage: 50%) {
+    flex-basis: $percentage;
+
+    @media #{$mobile} {
+        flex-basis: initial;
+    }
+}
+
+@mixin major-column($side, $percentage: 50%) {
+    @include major-column-base($percentage);
 }

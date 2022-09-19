@@ -8,6 +8,13 @@ html, body {
     margin: 0;
     font-family: $Karla;
     background-color: $color-mono-lightest;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+p {
+    line-height: 1.5;
 }
 
 body > header {
@@ -54,7 +61,7 @@ body > header {
         align-items: stretch;
         z-index: 101;
         background-color: $color-primary;
-        padding: #{$page-side-padding-desktop * .4} calc(#{$page-side-padding-desktop} * .8);
+        padding: #{$page-side-padding-desktop * .4} #{$page-side-padding-desktop * .8};
 
         #nav-toggle-inner {
             display: none;
@@ -72,16 +79,14 @@ body > header {
         }
 
         #logo a {
-            @extend %button;
             padding: 1rem 1.5rem;
             display: block;
             text-align: center;
             color: inherit;
             line-height: 0;
-            transition: background-color .15s ease-in-out;
 
             svg {
-                width: 6em;
+                width: 4em;
                 fill: currentColor;
 
                 mask path {
@@ -89,17 +94,8 @@ body > header {
                 }
 
                 @media #{$mobile} {
-                    width: 80%;
+                    width: 50%;
                     max-height: 8em;
-                }
-            }
-
-            &:hover,
-            &:focus {
-                background-color: rgba(0,0,0,.1);
-
-                @media #{$mobile} {
-                    background-color: initial;
                 }
             }
         }
@@ -113,41 +109,40 @@ body > header {
             margin: 0;
             padding: 0;
             list-style: none;
+            flex-wrap: wrap;
 
             li {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                align-items: stretch;
 
-                a {
-                    @extend %button;
-                    color: inherit;
+                .button {
                     font-weight: bold;
-                    text-decoration: none;
-                    text-align: center;
                     font-size: 1em;
-                    cursor: pointer;
-                    background-color: transparent;
-                    transition: background-color .15s ease-in-out;
-
-                    &:hover,
-                    &:focus {
-                        background-color: rgba(0,0,0,.1);
-                    }
-
-                    &:active {
-                        background-color: rgba(0,0,0,.25);
-                    }
-
-                    &.fa-brands:before {
-                        font-size: 1.5em;
-                        font-weight: 400;
-                    }
 
                     @media #{$mobile} {
-                        padding: .5em;
-                        height: initial;
+                        text-align: center;
+                        padding: 1em;
                         border-radius: 0;
+                    }
+                }
+
+                &.nav-link-social {
+                    flex-direction: row;
+                    align-items: center;
+
+                    a {
+                        font-size: 1.5em;
+                        font-weight: 400;
+                        border-radius: 50%;
+                        padding: 1rem;
+
+                        &:before {
+                            display: block;
+                            height: 1.5rem;
+                            width: 1.5rem;
+                        }
                     }
                 }
             }
@@ -205,6 +200,54 @@ body > header {
 
     @media #{$mobile} {
         background-color: $color-primary;
+    }
+}
+
+body, #content-container {
+    flex-grow: 1;
+}
+
+body > footer {
+    background-color: $color-mono-lighter;
+    padding: 3em $page-side-padding-desktop;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+
+    > * {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        &:first-child {
+            align-items: flex-start;
+
+            @media #{$mobile} {
+                align-items: center;
+            }
+        }
+
+        :not(:first-child):not(:last-child) {
+            align-items: center;
+        }
+
+        &:last-child {
+            align-items: flex-end;
+
+            @media #{$mobile} {
+                align-items: center;
+            }
+        }
+
+        a i {
+            margin-right: .25em;
+        }
+    }
+
+    @media #{$mobile} {
+        padding: #{$page-side-padding-mobile * .6} $page-side-padding-mobile;
+        flex-direction: column;
     }
 }
 

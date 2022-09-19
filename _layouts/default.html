@@ -1,6 +1,7 @@
 ---
 styles:
   - layouts/default.css
+  - base.css
 fonts:
   - Karla:
     - 400
@@ -44,19 +45,23 @@ fonts:
                 </div>
                 <ul id="nav-links">
                     <li>
-                        <a href="{{ site.baseurl }}/events">Events</a>
+                        <a href="{{ site.baseurl }}/events" class="button button--bg-primary button--text-lightest button--hover-darken editable">Events</a>
                     </li>
                     <li>
-                        <a href="{{ site.baseurl }}/testimonies">Testimonies</a>
+                        <a href="{{ site.baseurl }}/testimonies" class="button button--bg-primary button--text-lightest button--hover-darken editable">Testimonies</a>
                     </li>
                     <li>
-                        <a href="{{ site.baseurl }}/about">About</a>
+                        <a href="{{ site.baseurl }}/resources" class="button button--bg-primary button--text-lightest button--hover-darken editable">Resources</a>
                     </li>
                     <li>
-                        <a href="{{ site.baseurl }}/connect">Connect</a>
+                        <a href="{{ site.baseurl }}/about" class="button button--bg-primary button--text-lightest button--hover-darken editable">About</a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/stanfordchristianstudents/" class="fa-brands fa-instagram"></a>
+                        <a href="{{ site.baseurl }}/#connect" class="button button--bg-primary button--text-lightest button--hover-darken editable">Connect</a>
+                    </li>
+                    <li class="nav-link-social">
+                        <a href="https://www.instagram.com/stanfordchristianstudents" class="fa-brands fa-instagram button button--bg-primary button--text-lightest button--hover-darken"></a>
+                        <a href="https://www.facebook.com/stanfordchristianstudents" class="fa-brands fa-facebook button button--bg-primary button--text-lightest button--hover-darken"></a>
                     </li>
                 </ul>
             </nav>
@@ -65,6 +70,25 @@ fonts:
         <div id="content-container">
             {{ content }}
         </div>
+        <footer>
+            <div>
+                <a href="mailto:christianstudents@stanford.edu" class="button button--text-darkest button--hover-darken">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span class="editable">christian&shy;students@&#8203;stanford.&shy;edu</span>
+                </a>
+                <a href="https://www.instagram.com/stanfordchristianstudents" class="button button--text-darkest button--hover-darken">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span class="editable">stanford&shy;christian&shy;students</span>
+                </a>
+                <a href="https://www.facebook.com/stanfordchristianstudents" class="button button--text-darkest button--hover-darken">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span class="editable">stanford&shy;christian&shy;students</span>
+                </a>
+            </div>
+            <div>
+                <span class="button button--noninteractive editable">&copy;2022 Stanford Christian Students</span>
+            </div>
+        </footer>
         {%- include getscripts.html path='/js' afterbody=true -%}
     </body>
 </html>
