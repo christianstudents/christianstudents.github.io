@@ -175,6 +175,10 @@
         margin: -.5em;
         justify-content: center;
 
+        &.only-mobile {
+            margin-bottom: 1em;
+        }
+
         .upcoming-event {
             margin: .5em;
         }

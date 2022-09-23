@@ -1,12 +1,14 @@
 ---
-title: Stanford Christian Students
+title: Home
 layout: default
 styles:
   - index.css
   - upcoming-events-widget.css
+  - daily-bread-widget.css
 scripts:
-  - upcoming-events-widget.js
-  - index.js:
+  - upcoming-events-widget.js:
+      afterbody: true
+  - daily-bread-widget.js:
       afterbody: true
 fonts:
   - Karla:
@@ -35,7 +37,9 @@ fonts:
     <div></div>
 </section>
 <section id="upcoming-events">
-    <a href="{{ site.baseurl }}/events"><h2><span class="editable">Upcoming events</span><i class="fa fa-chevron-right icon icon--space-before"></i></h2></a>
+    <h2>
+        <a href="{{ site.baseurl }}/events"><span class="editable">Upcoming events</span><i class="fa fa-chevron-right icon icon--space-before"></i></a>
+    </h2>
     <div class="upcoming-events-widget upcoming-events-widget--max-7 upcoming-events-widget--loading">
         <div class="upcoming-events-widget__loading">Loading...</div>
     </div>
@@ -120,45 +124,12 @@ fonts:
         <h2 class="editable">Read the Bible with us</h2>
         <p class="editable">Receive a new chapter of the Bible everyday. Our goal is to finish the New Testament by the end of the year.</p>
     </section>
-    <article class="daily-bread">
-        <h3><span class="editable">Daily Bread</span> <span class="daily-bread__date"></span></h3>
-        <h4 class="dail-bread__chapter-title">Genesis 27:26&ndash;46</h4>
-        <div class="daily-bread__verses">
-            <div class="daily-bread__verse">
-                <span class="daily-bread__verse__ref">Gn 27:26</span>
-                <span class="daily-bread__verse__text">Then his father Isaac said to him, Please come near and kiss me, my son.</span>
-            </div>
-            <div class="daily-bread__verse">
-                <span class="daily-bread__verse__ref">Gn 27:27</span>
-                <span class="daily-bread__verse__text">So he came near and kissed him; and when Isaac smelled the smell of his garments, he blessed him and said, See, the smell of my son &mdash; / Like the smell of a field / Which Jehovah has blessed.</span>
-            </div>
-            <div class="daily-bread__verse">
-                <span class="daily-bread__verse__ref">Gn 27:28</span>
-                <span class="daily-bread__verse__text">And may God give you / Of the dew of heaven and of the fatness of the earth, / And an abundance of grain and new wine.</span>
-            </div>
-            <div class="daily-bread__verse">
-                <span class="daily-bread__verse__ref">Gn 27:29</span>
-                <span class="daily-bread__verse__text">Let peoples serve you, / And nations bow down to you. / Be lord over your brothers, / And let your mother's sons bow down to you. / Cursed be those who curse you, / And blessed be those who bless you.</span>
-            </div>
-            <div class="daily-bread__verse">
-                <span class="daily-bread__verse__ref">Gn 27:30</span>
-                <span class="daily-bread__verse__text">And as soon as Isaac had finished blessing Jacob, when Jacob had just gone out from the presence of Isaac his father, Esau his brother came in from his hunting.</span>
-            </div>
-            <div class="daily-bread__verse">
-                <span class="daily-bread__verse__ref">Gn 27:31</span>
-                <span class="daily-bread__verse__text">And he also had prepared a tasty meal and brought it to his father. And he said to his father, Let my father rise up, and eat some of his son's game, that you may bless me.</span>
-            </div>
-            <div class="daily-bread__verse">
-                <span class="daily-bread__verse__ref">Gn 27:32</span>
-                <span class="daily-bread__verse__text">And Isaac his father said to him, Who are you? And he said, I am your son, your firstborn, Esau.</span>
-            </div>
-            <div class="daily-bread__verse">
-                <span class="daily-bread__verse__ref">Gn 27:33</span>
-                <span class="daily-bread__verse__text">And Isaac trembled very greatly and said, Who was it then who hunted hame and brought it to me, so that I are of it all before you came and blessed him? And blessed will he be.</span>
-            </div>
-        </div>
-        <div class="daily-bread__footer button-group">
-            <button class="button button--text-lightest button--bg-primary button--hover-shadow"><span class="editable">Read all the verses</span><i class="fa fa-chevron-down icon icon--wide-space-before"></i></button>
+    <article class="daily-bread-widget daily-bread-widget--loading">
+        <h3><span class="editable">Daily Bread</span> <span class="daily-bread-widget__date"></span></h3>
+        <h4 class="daily-bread-widget__chapter-title">Loading Daily Bread...</h4>
+        <div class="daily-bread-widget__verses"></div>
+        <div class="button-group">
+            <button class="daily-bread-widget__expander button button--text-lightest button--bg-primary button--hover-shadow"><span class="editable">Read all the verses</span><i class="fa fa-chevron-down icon icon--wide-space-before"></i></button>
         </div>
     </article>
 </section>

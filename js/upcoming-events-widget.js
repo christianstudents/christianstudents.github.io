@@ -337,7 +337,7 @@ void (function() {
                 div.classList.add('upcoming-events-widget__errored');
                 div.innerHTML = `
                     <div>There was a problem getting the events.</div>
-                    <button>Try again</button>
+                    <button class="button button--bg-primary button--text-lightest button--hover-shadow">Try again</button>
                 `;
 
                 for (let i = 0; i < widgetContainers.length; i++) {
@@ -346,13 +346,8 @@ void (function() {
                     // Clear the widget container's children.
                     widgetContainers[i].textContent = '';
 
-                    /** @type {HTMLDivElement} */
-                    // @ts-ignore
-                    const clone = div.cloneNode(true);
-
-                    /** @type {HTMLButtonElement} */
-                    // @ts-ignore
-                    const button = clone.querySelector('button');
+                    const clone = /** @type {HTMLDivElement} */(div.cloneNode(true));
+                    const button = /** @type {HTMLButtonElement} */(clone.querySelector('button'));
                     button.addEventListener('click', createWidgets);
 
                     widgetContainers[i].appendChild(clone);

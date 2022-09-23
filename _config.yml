@@ -30,7 +30,8 @@ defaults:
 url: http://web.stanford.edu/group/christianstudent/
 google_analytics_key: 
 logo: http://web.stanford.edu/group/christianstudent/images/logo.svg
-description: Website for Stanford Christian Students
+description: A Website for the Stanford Christian Students club
+tagline: Stanford Christian Students
 author:
   name: 
   email: 
@@ -38,8 +39,8 @@ author:
 social:
   name: stanfordchristianstudents
   links:
-  - https://www.instagram.com/stanfordchristianstudents/
-  - https://www.facebook.com/stanfordchristianstudents/
+    instagram: https://www.instagram.com/stanfordchristianstudents/
+    facebook: https://www.facebook.com/stanfordchristianstudents/
 permalink: pretty
 future: true
 plugins:

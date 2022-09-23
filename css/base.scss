@@ -3,6 +3,13 @@
 
 @import "variables";
 
+html, body {
+    margin: 0;
+    font-family: $Karla;
+    background-color: $color-mono-lightest;
+    color: $color-mono-darker;
+}
+
 .page-content {
     display: flex;
     flex-direction: row;
@@ -251,36 +258,78 @@
         cursor: initial;
     }
 
-    &--hover-shadow {
+    &--disabled,
+    &[disabled=""],
+    &[disabled="true"] {
+        pointer-events: none;
+    }
+
+    &--hover-shadow:not(.button--disabled):not([disabled=""]):not([disabled="true"]) {
         @extend %button-hover-shadow;
     }
 
-    &--hover-darken {
+    &--hover-darken:not(.button--disabled):not([disabled=""]):not([disabled="true"]) {
         @extend %button-hover-darken;
     }
 
     &--bg-lightest {
         background-color: $color-mono-lightest;
+
+        &.button--disabled,
+        &[disabled=""],
+        &[disabled="true"] {
+            background-color: desaturate($color: $color-mono-lightest, $amount: 100%);
+        }
     }
 
     &--bg-primary {
         background-color: $color-primary;
+
+        &.button--disabled,
+        &[disabled=""],
+        &[disabled="true"] {
+            background-color: desaturate($color: $color-primary, $amount: 100%);
+        }
     }
 
     &--bg-darkest {
         background-color: $color-mono-darkest;
+
+        &.button--disabled,
+        &[disabled=""],
+        &[disabled="true"] {
+            background-color: desaturate($color: $color-mono-darkest, $amount: 100%);
+        }
     }
 
     &--text-lightest {
         color: $color-mono-lightest;
-    }
 
-    &--text-darkest {
-        color: $color-mono-darker;
+        &.button--disabled,
+        &[disabled=""],
+        &[disabled="true"] {
+            color: desaturate($color: $color-mono-lightest, $amount: 100%);
+        }
     }
 
     &--text-primary {
         color: $color-primary;
+
+        &.button--disabled,
+        &[disabled=""],
+        &[disabled="true"] {
+            color: desaturate($color: $color-primary, $amount: 100%);
+        }
+    }
+
+    &--text-darkest {
+        color: $color-mono-darkest;
+
+        &.button--disabled,
+        &[disabled=""],
+        &[disabled="true"] {
+            color: desaturate($color: $color-mono-darkest, $amount: 100%);
+        }
     }
 }
 
@@ -325,4 +374,30 @@ p {
 h1, h2 {
     font-size: 2.25em;
     margin: 0 0 1rem;
+}
+
+.only {
+    &-desktop {
+        @media #{$mobile} {
+            display: none !important;
+        }
+    }
+
+    &-mobile {
+        @media #{$desktop} {
+            display: none !important;
+        }
+    }
+
+    &-javascript-enabled {
+        :root:not([data-javascript-enabled]) & {
+            display: none !important;
+        }
+    }
+
+    &-javascript-disabled {
+        :root[data-javascript-enabled] & {
+            display: none !important;
+        }
+    }
 }

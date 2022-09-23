@@ -105,18 +105,25 @@
 #upcoming-events {
     margin-top: 3em;
 
-    > a {
-        color: $color-primary;
-        text-decoration: none;
+    h2 {
+        font-size: 1em;
+        margin: 0;
 
-        &:hover,
-        &:focus {
-            text-decoration: underline;
+        a {
+            color: $color-primary;
+            text-decoration: none;
+    
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
         }
 
-        h2 {
-            font-size: 1em;
+        button {
             margin: 0;
+            border: 0;
+            padding: 0;
+            background-color: transparent;
         }
     }
 
@@ -298,33 +305,21 @@
         }
     }
 
-    .daily-bread {
+    .daily-bread-widget {
         h3 {
             color: $color-primary;
             font-size: 1em;
             margin: 0;
         }
 
-        h4 {
-            font-size: 1.125em;
-            margin: 1rem 0;
-            font-weight: 800;
+        &--loading .button-group,
+        &--expanded .button-group,
+        &--errored .button-group {
+            display: none;
         }
 
-        &__verse {
-            font-size: .9em;
-
-            &__ref {
-                font-weight: bold;
-            }
-
-            + .daily-bread__verse {
-                margin-top: 1em;
-            }
-        }
-
-        &__footer {
-            padding-top: 1.5em;
+        .button-group {
+            padding-top: 1em;
         }
     }
 
@@ -348,8 +343,8 @@
             padding: 0;
             background-color: transparent;
             font-weight: normal;
-            margin: .25em 0 0;
-            padding-left: .75rem;
+            margin: 0 0 .25rem;
+            padding-left: 1rem;
 
             &:before {
                 font-family: "Font Awesome 6 Free";
@@ -361,12 +356,13 @@
 
         .mc-field-group {
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             margin-bottom: 1em;
         }
 
         input {
-            @extend %button-base;
+            padding: .75rem 1rem;
+            border-radius: .5rem;
             cursor: initial;
             background-color: $color-mono-lightest;
             color: $color-mono-darkest;
@@ -378,8 +374,17 @@
 
         label {
             font-size: .9rem;
+            font-weight: bold;
             color: $color-mono-lightest;
-            padding: 0 0 .25rem .75rem;
+            padding: .25rem 0 0 1rem;
+        }
+
+        .mce-responses {
+            margin: 1em 0;
+
+            @media #{$mobile} {
+                text-align: center;
+            }
         }
     }
 
