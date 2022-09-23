@@ -154,7 +154,7 @@ void (function() {
             /** @type {DailyBreadData} */
             const dailyBread = snapshot.val();
     
-            return fetch(`../bible/${dailyBread.bookName}.json`).then(data => data.json()).then((book) => {
+            return fetch(`../assets/bible/${dailyBread.bookName}.json`).then(data => data.json()).then((book) => {
                 return /** @type {BibleChapter} */(book.chapters[dailyBread.chapterIdx]);
             })
         }).then((chapter) => {
