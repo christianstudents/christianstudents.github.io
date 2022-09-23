@@ -1,0 +1,11 @@
+// Adds css-min and css-max, which corresponds to CSS's min and max functions. Sass has its own min
+// and max functions, and it can *usually* determine when to use each one, but in the cases where it
+// doesn't, this forces it to use the right one.
+
+@function css-min($args...) {
+	@return m#{i}n($args);
+};
+
+@function css-max($args...) {
+	@return m#{a}x($args);
+};

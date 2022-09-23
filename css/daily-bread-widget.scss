@@ -1,0 +1,44 @@
+---
+---
+
+@import "variables";
+
+.daily-bread-widget {
+    // This constant should also be changes in /js/daily-bread-widget.js.
+    $unexpanded-length: 5;
+
+    &__chapter-title {
+        font-size: 1.125em;
+        margin: 1rem 0;
+        font-weight: 800;
+    }
+
+    &__verse {
+        font-size: .9em;
+        margin: 1em 0 0;
+
+        &__ref {
+            font-weight: bold;
+        }
+
+        .daily-bread-widget:not(.daily-bread-widget--expanded) &:nth-child(n + #{$unexpanded-length + 1}) {
+            display: none;
+        }
+    }
+
+    &__expander {
+        .daily-bread-widget--loading &,
+        .daily-bread-widget--expanded &,
+        .daily-bread-widget--errored & {
+            display: none;
+        }
+    }
+
+    &__errored {
+        text-align: center;
+
+        .button {
+            margin-top: 1em;
+        }
+    }
+}

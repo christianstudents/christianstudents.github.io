@@ -1,0 +1,40 @@
+{%- if page.fonts -%}
+    {%- if layout.fonts -%}
+        {%- assign fonts = layout.fonts | concat: page.fonts | uniq -%}
+    {%- else -%}
+        {%- assign fonts = page.fonts | uniq -%}
+    {%- endif -%}
+{%- elsif layout.fonts -%}
+    {%- assign fonts = layout.fonts | uniq -%}
+{%- endif -%}
+{%- if include.append -%}
+    {%- assign appendtext = include.append | append: "&" -%}
+{%- endif -%}
+{%- if fonts or appendtext -%}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {%- capture fonttext -%}
+        {%- for font in fonts -%}
+            family=
+            {%- if font.first -%}
+                {{- font.first[0] | split: " " | join: "+" -}}
+                :ital,wght@
+                {%- assign fontspecs = font.first[1] | join: "," | split: "," | sort -%}
+                {%- for fontspec in fontspecs -%}
+                    {%- unless forloop.first -%};{%- endunless -%}
+                    {%- capture ital -%}{{- fontspec | slice: -1 -}}{%- endcapture -%}
+                    {%- if ital == "i" -%}
+                        {%- assign len = fontspec | size | minus: 1 -%}
+                        1,{{- fontspec | slice: 0, len -}}
+                    {%- else -%}
+                        0,{{- fontspec -}}
+                    {%- endif -%}
+                {%- endfor -%}
+            {%- else -%}
+                {{- font | split: " " | join: "+" -}}
+            {%- endif -%}
+            &
+        {%- endfor -%}
+    {%- endcapture -%}
+    <link href="https://fonts.googleapis.com/css2?{{- appendtext -}}{{- fonttext -}}display=swap" rel="stylesheet" type="text/css">
+{%- endif -%}

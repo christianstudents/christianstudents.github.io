@@ -1,177 +1,169 @@
 ---
-title: Stanford Christian Students
+title: Home
 layout: default
+styles:
+  - index.css
+  - upcoming-events-widget.css
+  - daily-bread-widget.css
+scripts:
+  - upcoming-events-widget.js:
+      afterbody: true
+  - daily-bread-widget.js:
+      afterbody: true
+fonts:
+  - Karla:
+    - 400
+    - 500
+    - 700
+    - 800
 ---
 
-<div style="height:15px"></div> 
-
-<div class="banner" style="box-shadow:0.5em 1em 0em rgba(0,0,0,.5);">
-
-	<!-- Full-width images with number and caption text -->
-	<a href="{{ site.baseurl }}/welcome/"><img src="{{ site.baseurl }}/images/Welcome Banner.jpg"/></a>
-</div>
-
-<!-- Slideshow container -->
-<div class="slideshow-container" style="box-shadow:0 .5em 1em 0em rgba(0,0,0,.5); border-radius: 30px; margin: 0 auto 15px; opacity:.999">
-
-	<!-- Full-width images with number and caption text -->
-<!-- 
-	<div class="mySlides fade">
-		<a href="{{ site.baseurl }}/welcome/"><img src="{{ site.baseurl }}/images/Welcome Banner.jpg" style="width:100%;display:block" /></a>
-	</div> -->
-
-	<div class="mySlides fade">
-		<img src="{{ site.baseurl }}/images/Boston Blending 2.png"/>
-	</div>
-
-	<div class="mySlides fade">
-		<img src="{{ site.baseurl }}/images/Main.jpg"/>
-	</div>
-	<!-- Next and previous buttons -->
-	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-	<a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-
-
-<div class="container" id="about-us">
-	<div class="columns">
-		<div style="text-align: center; border-radius: 30px;">
-			<iframe id="welcomeVideo"  src="https://www.youtube.com/embed/_9k7MqcQalQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
-		<!-- <div>
-			<h2 class="editable">
-				ABOUT US
-			</h2>
-			<p class="editable">
-				Stanford Christian Students is a community that welcomes all students to read the word of God, to grow in Christ, and to pursue fellowship with us on campus. For our events, we hold weekly Bible studies, host on-campus worship services, and enjoy group gatherings together
-			</p>
-		</div> -->
-	</div>
-</div>
-
-
-<div class="container" id="about-us">
-	<div class="columns">
-		<div>
-			<img src="{{ site.baseurl }}/images/about.jpg" alt="about" style="border-radius: 30px;"/>
-		</div>
-		<div>
-			<h2 class="editable">
-				ABOUT US
-			</h2>
-			<p class="editable">
-				Stanford Christian Students is a community that welcomes all students to read the word of God, to grow in Christ, and to pursue fellowship with us on campus. For our events, we hold weekly Bible studies, host on-campus worship services, and enjoy group gatherings together.
-			</p>
-		</div>
-	</div>
-</div>
-
-<div class="container">
-	<h2 class="editable" style="text-align: center;">
-		What we do
-	</h2>
-	<p class="editable" style="text-align: center;">
-		Acts 2:46 - "And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart"
-	</p>
-	<ul class="seconds">
-		<li>
-			<img src="{{ site.baseurl }}/images/bible-study.jpg" alt="Bible-Study" />
-			<h3 class="editable">
-				BIBLE STUDIES
-			</h3>
-			<p class="editable">
-				Meet in a small group to read and enjoy the Word of God. Times are flexible to meet your schedule.
-			</p>
-		</li>
-		<li>
-		    <img src="{{ site.baseurl }}/images/meetups.jpg" alt="Meet-Ups" />
-			<h3 class="editable">
-				MEET-UPS!
-			</h3>
-			<p class="editable">
-				Companionship / mentorship: meet and follow after Christ together with students / staff in 2's and 3’s
-			</p>
-		</li>
-		<li>
-		    <img src="{{ site.baseurl }}/images/Ministry Series.JPG" alt="Worship-Service" />
-			<h3 class="editable">
-				MINISTRY SERIES
-			</h3>
-			<p class="editable">
-				Every Sunday afternoon, we gather together virtually to worship our Lord and enjoy a short ministry speaking from His Word.
-			</p>
-		</li>
-		<li>
-		    <img src="{{ site.baseurl }}/images/retreat.jpg" alt="Retreat" />
-			<h3 class="editable">
-				FALL/SPRING RETREATS
-			</h3>
-			<p class="editable">
-				Every fall and spring we set aside a weekend to unwind in the beautiful woods in Sonoma, fellowship with one another and be refreshed by the Word of God.
-			</p>
-		</li>
-	</ul>
-</div>
-<div class="container" id="upcoming-events">
-	<h2 class="editable">
-		Upcoming Events
-	</h2>
-	<div class="upcoming">
-		<ul class="thirds">
-			<li>
-				<img src="{{ site.baseurl }}/images/BibleStudiesWinter2022.jpg"  width="600" height="600"/>
-				<h3 class = "editable">Bible Studies</h3>
-				<hr>
-				<div class = "event-info">
-					<p class="event-time"><i class="far fa-calendar-alt" ></i> Wednesdays, 7-8 PM PT</h4>
-					<p class="event-time"><i class="far fa-calendar-alt" ></i> Thursdays, 7-8 PM PT</h4>
-					<p class="editable"><i class="fas fa-map-marker-alt"></i> DM us <a href = "https://instagram.com/stanfordchristianstudents">@stanfordchristianstudents</a> or email us at <a href = "mailto:christianstudents@stanford.edu">christianstudents@stanford.edu</a> for the zoom link!</h4>
-					<p class="editable">
-						Come join us in taking our weekly bread as we dive into Romans! 😊
-					</p>
-				</div>
-			</li>
-			<li>
-				<img src="{{ site.baseurl }}/images/SundayWorshipWinter2022.jpeg"  width="600" height="600"/>
-				<h3 class = "editable">Sunday Worship Services</h3>
-				<hr>
-				<div class = "event-info">
-					<p class="event-time"><i class="far fa-calendar-alt" ></i> Sundays, 11AM-12PM PT</h4>
-					<p class="editable"><i class="fas fa-map-marker-alt"></i> DM us <a href = "https://instagram.com/stanfordchristianstudents">@stanfordchristianstudents</a> or email us at <a href = "mailto:christianstudents@stanford.edu">christianstudents@stanford.edu</a> for the zoom link!</h4>
-					<p class="editable">
-						All of you are welcome!! Come join us in fellowship and enjoying the Lord! 🤩
-					</p>
-				</div>
-			</li>
-		</ul>
-	</div>
-	<div class="calendar" style="text-align:center">
-		<iframe src="https://calendar.google.com/calendar/b/1/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FLos_Angeles&amp;src=Z3M0YjlkODJ2OTRyMmRzdm1yanNza3J0ZXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23E67C73" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-	</div>
-	<div class = "calendar-mobile" style = "text-align: center">
-		<iframe src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FLos_Angeles&amp;src=Z3M0YjlkODJ2OTRyMmRzdm1yanNza3J0ZXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23E67C73&amp;mode=AGENDA&amp;showTabs=0&amp;showCalendars=0&amp;showPrint=0" style="border:solid 1px #777;max-width:100%" width="450" height="500" frameborder="0" scrolling="no"></iframe>
-	</div>
-</div>
-
-<div class="container fetching" id="recent-posts">
-	<h2 class="editable">Recent Posts</h2>
-	<div class="recent-ig">
-		<ul class="thirds">
-			{% for i in (0..5) %}
-				<li class="ig-post" data-ig-post-index="{{ i }}">
-					<img>
-					<h5 class="date">{% include icons/social-media.html social_icon="instagram" %} <span></span></h5>
-					<h4 class="interactions"><span class="likes"></span> <i class="fas fa-heart"></i> <span class="comments"></span> <i class="fas fa-comment"></i></h4>
-					<p class="caption">
-						<span class="preview"></span>
-						<!-- doesn't actually go anywhere, has an onclick handler -->
-						<a href="#showmore" class="more">show more</a>
-						<br>
-						<a class="link-orig-post" target="_parent">Original post<i class="fas fa-external-link-alt"></i></a>
-					</p>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
-	<script type="text/javascript" src="{{site.baseurl}}/js/instagramfeed.js"></script>
-</div>
+<section id="welcome" class="page-content page-content--overflow-img">
+    <div class="page-content page-content--major-column-left">
+        <div>
+            <div>
+                <iframe src="https://www.youtube.com/embed/_9k7MqcQalQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <section>
+            <h1 class="editable">Welcome</h1>
+            <p class="editable">Stanford Christian Students is a community that welcomes all students to read the word of God, to grow in Christ, and to pursue fellowship with us on campus. For our events, we hold weekly Bible studies, host on-campus worship services, and enjoy group gatherings together.</p>
+            <div class="button-group">
+                <a href="{{ site.baseurl }}/about" class="button button--hover-shadow button--bg-lightest button--text-primary editable">Read more about us</a>
+                <a href="{{ site.baseurl }}/welcome" class="button button--hover-shadow button--bg-lightest button--text-primary editable">To the class of 2026</a>
+            </div>
+        </section>
+    </div>
+    <div></div>
+</section>
+<section id="upcoming-events">
+    <h2>
+        <a href="{{ site.baseurl }}/events"><span class="editable">Upcoming events</span><i class="fa fa-chevron-right icon icon--space-before"></i></a>
+    </h2>
+    <div class="upcoming-events-widget upcoming-events-widget--max-7 upcoming-events-widget--loading">
+        <div class="upcoming-events-widget__loading">Loading...</div>
+    </div>
+</section>
+<section id="join-our-events" class="page-content page-content--major-column-left page-content--sticky-left">
+    <section>
+        <h2 class="editable">Join our events</h2>
+        <p class="editable">Acts 2:46 - &ldquo;And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart.&rdquo;</p>
+        <div class="button-group">
+            <a href="{{ site.baseurl }}/events" class="button button--hover-shadow button--bg-primary button--text-lightest editable editable">See all events</a>
+        </div>
+    </section>
+    <div>
+        <section class="page-content-cell page-content-cell--img-top-content-bottom">
+            <div class="img-aspect-ratio img-aspect-ratio--16-25 img-corner-crop img-corner-crop--large--top-right">
+                <img src="{{ site.baseurl }}/images/bible-studies.jpg" alt="">
+            </div>
+            <div>
+                <h3 class="editable">Bible Studies</h3>
+                <p class="editable">Meet in groups to read and enjoy the Word of God every week. We don&lsquo;t just focus on obtaining doctrinal knowledge. We also emphasize applying the Word of God experientially in our Christian walk. </p>
+            </div>
+        </section>
+        <section class="page-content-cell page-content-cell--img-top-content-bottom">
+            <div class="img-aspect-ratio img-aspect-ratio--16-25 img-corner-crop img-corner-crop--large--top-right">
+                <img src="{{ site.baseurl }}/images/worship-service.jpg" alt="">
+            </div>
+            <div>
+                <h3 class="editable">Worship Service</h3>
+                <p class="editable">Every Sunday morning, we gather together for worship and a short sermon. In addition, we have an open mic time for anyone to share a testimony from their walk with Christ!</p>
+            </div>
+        </section>
+        <section class="page-content-cell page-content-cell--img-top-content-bottom">
+            <div class="img-aspect-ratio img-aspect-ratio--16-25 img-corner-crop img-corner-crop--large--top-right">
+                <img src="{{ site.baseurl }}/images/meetups.jpg" alt="">
+            </div>
+            <div>
+                <h3 class="editable">Meetups</h3>
+                <p class="editable">Companionship&#8203;/&#8203;mentorship: meet and follow after Christ together with students&#8203;/&#8203;staff in 2&rsquo;s and 3&rsquo;s.</p>
+            </div>
+        </section>
+        <section class="page-content-cell page-content-cell--img-top-content-bottom">
+            <div class="img-aspect-ratio img-aspect-ratio--16-25 img-corner-crop img-corner-crop--large--top-right">
+                <img src="{{ site.baseurl }}/images/small-groups.jpg" alt="">
+            </div>
+            <div>
+                <h3 class="editable">Small Groups</h3>
+                <p class="editable">We visit families in the surrounding cities for dinner and fellowship. Come enjoy a home cooked meal, singing, and mutual shepherding.</p>
+            </div>
+        </section>
+        <section class="page-content-cell page-content-cell--img-top-content-bottom">
+            <div class="img-aspect-ratio img-aspect-ratio--16-25 img-corner-crop img-corner-crop--large--top-right">
+                <img src="{{ site.baseurl }}/images/fall-spring-retreats.jpg" alt="">
+            </div>
+            <div>
+                <h3 class="editable">Fall/Spring Retreats</h3>
+                <p class="editable">Every fall and spring we join other Christian clubs in the Bay Area for a weekend of singing, rejoicing, testimonies and speaking from the word of God. Past topics include: God&rsquo;s complete salvation and five keys to a Godly living.</p>
+            </div>
+        </section>
+    </div>
+</section>
+<section id="testimonies" class="page-content page-content--overflow-img">
+    <div class="page-content page-content--major-column-left">
+        <div>
+            <div>
+                <div class="img-aspect-ratio img-aspect-ratio--6-7 img-corner-crop img-corner-crop--medium--top-left">
+                    <img src="{{ site.baseurl }}/images/testimonies.jpg"/>
+                </div>
+            </div>
+        </div>
+        <section>
+            <h2 class="editable">Testimonies</h2>
+            <p class="editable">1 Cor 14:31 - &ldquo;For you can all prophesy one by one that all may learn and all may be encouraged.&rdquo;</p>
+            <div class="button-group">
+                <a href="{{ site.baseurl }}/testimonies" class="button button--bg-lightest button--text-primary button--hover-shadow editable">See more testimonies</a>
+            </div>
+        </section>
+    </div>
+    <div></div>
+</section>
+<section id="read-the-bible-with-us" class="page-content page-content--major-column-left page-content--sticky-left">
+    <section>
+        <h2 class="editable">Read the Bible with us</h2>
+        <p class="editable">Receive a new chapter of the Bible everyday. Our goal is to finish the New Testament by the end of the year.</p>
+    </section>
+    <article class="daily-bread-widget daily-bread-widget--loading">
+        <h3><span class="editable">Daily Bread</span> <span class="daily-bread-widget__date"></span></h3>
+        <h4 class="daily-bread-widget__chapter-title">Loading Daily Bread...</h4>
+        <div class="daily-bread-widget__verses"></div>
+        <div class="button-group">
+            <button class="daily-bread-widget__expander button button--text-lightest button--bg-primary button--hover-shadow"><span class="editable">Read all the verses</span><i class="fa fa-chevron-down icon icon--wide-space-before"></i></button>
+        </div>
+    </article>
+</section>
+<section id="connect" class="page-content">
+    <!-- Mailchimp Form-->
+    <div id="mc_embed_signup">
+        <form action="https://stanford.us19.list-manage.com/subscribe/post?u=321f95806576f896b8d78f0e8&amp;id=6b7727301b&amp;f_id=00f28be4f0" method="post" id="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+                <label for="mce-EMAIL" class="editable">Email Address</label>
+                <input type="email" name="EMAIL" required class="required email" id="mce-EMAIL">
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-FNAME" class="editable">First Name</label>
+                <input type="text" name="FNAME" id="mce-FNAME">
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-LNAME" class="editable">Last Name</label>
+                <input type="text" name="LNAME" id="mce-LNAME">
+            </div>
+            <div id="mce-responses">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+            <div style="position: absolute; left: -99999px;" aria-hidden="true"><input type="text" name="b_321f95806576f896b8d78f0e8_6b7727301b" tabindex="-1" value=""></div>
+            <div class="button-group">
+                <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button button--bg-lightest button--text-primary button--hover-shadow editable">Submit</button>
+            </div>
+        </form>
+        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+        <script type='text/javascript'>window.fnames=['EMAIL','FNAME','LNAME'];var $mcj=jQuery.noConflict(true);</script>
+    </div>
+    <div>
+        <h2 class="editable">Connect with us</h2>
+        <p class="editable">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+</section>

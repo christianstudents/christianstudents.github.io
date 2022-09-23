@@ -1,0 +1,22 @@
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {string} $string Initial string
+/// @param {string} $search Substring to replace
+/// @param {string} [$replace=''] New value
+/// @returns {string} Updated string
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+/// Returns the unit of a value, or "" if there is no unit.
+/// @param {unit} $value The value to extract the unit from
+/// @returns {string} The unit of the value
+@function get-unit($value) {
+    @return str-slice($value * 0 + "", 2, -1);
+}

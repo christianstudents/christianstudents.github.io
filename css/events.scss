@@ -1,0 +1,191 @@
+---
+---
+
+@import "variables";
+@import "css-functions";
+
+#join-our-events {
+    $img-aspect-ratio: 2 / 1;
+    $img-desktop-overflow: 3em;
+    $img-mobile-overflow: 3em;
+
+    margin: 0 #{-$page-side-padding-desktop};
+
+    > div:first-child {
+        background-color: $color-primary;
+        color: $color-mono-lightest;
+        padding: 0 #{$page-side-padding-desktop};
+
+        > div:first-child {
+            width: calc((100vw - #{2 * $page-side-padding-desktop}) * 0.5);
+            min-height: calc((100vw - #{2 * $page-side-padding-desktop}) * #{0.5 / $img-aspect-ratio} - #{$img-desktop-overflow});
+            flex-basis: initial;
+            flex-grow: 0;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: stretch;
+
+            > div {
+                flex-grow: 1;
+                max-height: calc((100vw - #{2 * $page-side-padding-desktop}) * #{0.5 / $img-aspect-ratio});
+                position: relative;
+
+                > div {
+                    position: absolute;
+                    width: 100%;
+
+                    img {
+                        width: calc((100vw - #{2 * $page-side-padding-desktop}) * 0.5);
+                        height: calc((100vw - #{2 * $page-side-padding-desktop}) * #{0.5 / $img-aspect-ratio});
+                        border-radius: 1em;
+
+                        @media #{$mobile} {
+                            width: calc((100vw - #{2 * $page-side-padding-mobile}));
+                            height: calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $img-aspect-ratio});
+                        }
+                    }
+                }
+
+                @media #{$mobile} {
+                    max-height: initial;
+                }
+            }
+
+            @media #{$mobile} {
+                width: 100%;
+                height: calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $img-aspect-ratio} - #{$img-mobile-overflow});
+            }
+        }
+
+        > div:last-child {
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            h2 {
+                @media #{$mobile} {
+                    margin-top: .5em;
+                }
+            }
+
+            p {
+                line-height: 1.5;
+                margin: 1em 0;
+            }
+
+            > div {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin: 0 -.5em 1em;
+
+                a {
+                    @extend %button-hover-shadow;
+                    color: $color-mono-lightest;
+                    background-color: currentColor;
+                    text-decoration: none;
+                    font-weight: bold;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    font-weight: 500;
+                    margin: .5em .5em;
+                    font-size: .9rem;
+
+                    span {
+                        color: $color-primary;
+                    }
+
+                    i {
+                        margin-left: .25em;
+                    }
+                }
+
+                @media #{$mobile} {
+                    justify-content: center;
+                }
+            }
+
+            @media #{$mobile} {
+                margin-left: 0;
+            }
+        }
+
+        @media #{$mobile} {
+            flex-direction: column-reverse;
+            padding: 0 #{$page-side-padding-mobile};
+        }
+    }
+
+    > div:last-child {
+        height: calc((100vw - #{2 * $page-side-padding-desktop}) * #{0.5 / $img-aspect-ratio});
+
+        @media #{$mobile} {
+            height: $img-mobile-overflow;
+            flex-basis: initial;
+        }
+    }
+
+    @media #{$mobile} {
+        flex-direction: column;
+        margin: 0  #{-$page-side-padding-mobile};
+    }
+}
+
+#upcoming-events {
+    margin-top: 3em;
+    margin-bottom: 3rem;
+
+    > :first-child {
+        h2 {
+            color: $color-primary;
+        }
+
+        > :first-child {
+            margin-bottom: 2em;
+
+            > section {
+                margin-bottom: 1rem;
+    
+                h3 {
+                    margin: 0;
+                }
+    
+                p {
+                    margin: 0 0 .5rem;
+                }
+            }
+        }
+
+        .page-content-cell {
+            h3 {
+                color: $color-primary;
+                font-size: 1.25em;
+                margin: 0;
+            }
+
+            p {
+                margin: .5em 0 0;
+            }
+        }
+    }
+
+    .upcoming-events-widget {
+        flex-wrap: wrap;
+        margin: -.5em;
+        justify-content: center;
+
+        &.only-mobile {
+            margin-bottom: 1em;
+        }
+
+        .upcoming-event {
+            margin: .5em;
+        }
+    }
+
+    @media #{$mobile} {
+        margin-top: 2em;
+        margin-bottom: 2rem;
+    }
+}
