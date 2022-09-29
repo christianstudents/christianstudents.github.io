@@ -1,0 +1,152 @@
+#statement-of-faith > div:first-child > div:last-child > div a {
+  padding: .75em 1em;
+  border-radius: 1.5em;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .9rem; }
+  #statement-of-faith > div:first-child > div:last-child > div a:not(.fa):not(.fa-regular):not(.fa-brands):not(.fa-solid):not(.fa-light) {
+    font-family: inherit; }
+
+#statement-of-faith > div:first-child > div:last-child > div a {
+  transition: box-shadow .15s ease-in-out; }
+  #statement-of-faith > div:first-child > div:last-child > div a:hover, #statement-of-faith > div:first-child > div:last-child > div a:focus {
+    box-shadow: 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.25); }
+
+#statement-of-faith {
+  margin: 0 -5rem; }
+  #statement-of-faith > div:first-child {
+    background-color: #DD5450;
+    color: #FFFFFF;
+    padding: 0 5rem; }
+    #statement-of-faith > div:first-child > div:first-child {
+      width: calc((100vw - 10rem) * 0.5);
+      min-height: calc((100vw - 10rem) * 0.25 - 3em);
+      flex-basis: initial;
+      flex-grow: 0;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: stretch; }
+      #statement-of-faith > div:first-child > div:first-child > div {
+        flex-grow: 1;
+        max-height: calc((100vw - 10rem) * 0.25);
+        position: relative; }
+        #statement-of-faith > div:first-child > div:first-child > div > div {
+          position: absolute;
+          width: 100%; }
+          #statement-of-faith > div:first-child > div:first-child > div > div img {
+            width: calc((100vw - 10rem) * 0.5);
+            height: calc((100vw - 10rem) * 0.25);
+            border-radius: 1em; }
+            @media (max-width: 767px) {
+              #statement-of-faith > div:first-child > div:first-child > div > div img {
+                width: calc((100vw - 2rem));
+                height: calc((100vw - 2rem) * 0.5); } }
+        @media (max-width: 767px) {
+          #statement-of-faith > div:first-child > div:first-child > div {
+            max-height: initial; } }
+      @media (max-width: 767px) {
+        #statement-of-faith > div:first-child > div:first-child {
+          width: 100%;
+          height: calc((100vw - 2rem) * 0.5 - 3em); } }
+    #statement-of-faith > div:first-child > div:last-child {
+      flex-grow: 1;
+      flex-shrink: 1; }
+      @media (max-width: 767px) {
+        #statement-of-faith > div:first-child > div:last-child h2 {
+          margin-top: .5em; } }
+      #statement-of-faith > div:first-child > div:last-child p {
+        line-height: 1.5;
+        margin: 1em 0; }
+      #statement-of-faith > div:first-child > div:last-child > div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 -.5em 1em; }
+        #statement-of-faith > div:first-child > div:last-child > div a {
+          color: #FFFFFF;
+          background-color: currentColor;
+          text-decoration: none;
+          font-weight: bold;
+          white-space: nowrap;
+          cursor: pointer;
+          font-weight: 500;
+          margin: .5em .5em;
+          font-size: .9rem; }
+          #statement-of-faith > div:first-child > div:last-child > div a span {
+            color: #DD5450; }
+          #statement-of-faith > div:first-child > div:last-child > div a i {
+            margin-left: .25em; }
+        @media (max-width: 767px) {
+          #statement-of-faith > div:first-child > div:last-child > div {
+            justify-content: center; } }
+      @media (max-width: 767px) {
+        #statement-of-faith > div:first-child > div:last-child {
+          margin-left: 0; } }
+    @media (max-width: 767px) {
+      #statement-of-faith > div:first-child {
+        flex-direction: column-reverse;
+        padding: 0 1rem; } }
+  #statement-of-faith > div:last-child {
+    height: calc((100vw - 10rem) * 0.25); }
+    @media (max-width: 767px) {
+      #statement-of-faith > div:last-child {
+        height: 3em;
+        flex-basis: initial; } }
+  @media (max-width: 767px) {
+    #statement-of-faith {
+      flex-direction: column;
+      margin: 0 -1rem; } }
+
+#what-we-believe {
+  margin-top: 3em;
+  text-align: center; }
+  #what-we-believe > :first-child h2 {
+    color: #DD5450; }
+  #what-we-believe > :first-child p {
+    max-width: 58.5em;
+    margin: auto;
+    text-align: justify; }
+  #what-we-believe > :nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 3em; }
+    #what-we-believe > :nth-child(2) .tile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      #what-we-believe > :nth-child(2) .tile-container + .tile-container {
+        margin-left: 1.5em; }
+        @media (max-width: 767px) {
+          #what-we-believe > :nth-child(2) .tile-container + .tile-container {
+            margin-left: 0;
+            margin-top: 1em; } }
+    #what-we-believe > :nth-child(2) .tile {
+      max-width: 15.5em;
+      padding: 1em 1.5em;
+      box-shadow: 0 0 0 1px #F6BE6A;
+      border-radius: .5em; }
+      #what-we-believe > :nth-child(2) .tile__heading {
+        font-weight: 800;
+        margin: 0 0 .5em; }
+      #what-we-believe > :nth-child(2) .tile__content {
+        margin: 0 0 1em; }
+      #what-we-believe > :nth-child(2) .tile__verses {
+        margin: 0; }
+        #what-we-believe > :nth-child(2) .tile__verses a {
+          color: #DD5450;
+          text-decoration: underline;
+          white-space: nowrap; }
+          #what-we-believe > :nth-child(2) .tile__verses a:hover, #what-we-believe > :nth-child(2) .tile__verses a:focus {
+            text-decoration: none; }
+      #what-we-believe > :nth-child(2) .tile + .tile {
+        margin-top: 1em; }
+    @media (max-width: 767px) {
+      #what-we-believe > :nth-child(2) {
+        flex-direction: column; } }
