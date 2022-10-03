@@ -1,8 +1,5 @@
----
----
-
-@import "variables";
-@import "sass-functions";
+@import "../_sass/variables";
+@import "../_sass/sass-functions";
 
 .upcoming-events-widget {
     display: flex;

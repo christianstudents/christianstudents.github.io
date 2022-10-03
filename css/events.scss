@@ -1,8 +1,5 @@
----
----
-
-@import "variables";
-@import "css-functions";
+@import "../_sass/variables";
+@import "../_sass/css-functions";
 
 #join-our-events {
     $img-aspect-ratio: 2 / 1;

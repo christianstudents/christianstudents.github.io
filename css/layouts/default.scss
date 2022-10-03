@@ -1,8 +1,5 @@
----
----
-
-@import "variables";
-@import "css-functions";
+@import "../_sass/variables.scss";
+@import "../_sass/css-functions.scss";
 
 html, body {
     display: flex;
@@ -90,6 +87,10 @@ body > header {
                     width: 50%;
                     max-height: 8em;
                 }
+            }
+
+            @media #{$mobile} {
+                border-radius: 0;
             }
         }
 

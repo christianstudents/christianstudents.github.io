@@ -1,8 +1,5 @@
----
----
-
-@import "variables";
-@import "css-functions";
+@import "../_sass/variables";
+@import "../_sass/css-functions";
 
 #welcome {
     $youtube-video-aspect-ratio: 16 / 9;

@@ -1,0 +1,39 @@
+{
+  "name": "christianstudents.github.io",
+  "version": "1.0.0",
+  "description": "Website for Stanford Christian Students",
+  "private": true,
+  "scripts": {
+    "start": "bundle exec jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christianstudents/christianstudents.github.io.git"
+  },
+  "author": "Christian Figueroa <figgchristian@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christianstudents/christianstudents.github.io/issues"
+  },
+  "homepage": "https://github.com/christianstudents/christianstudents.github.io#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.13",
+    "jsdom": "^20.0.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.3",
+    "postcss-loader": "^7.0.1",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.4.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "@googleapis/calendar": "^2.0.0",
+    "firebase": "^9.10.0"
+  }
+}

@@ -12,11 +12,12 @@ fonts:
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base target="_top"/>
         {% seo %}
         <meta name="google-site-verification" content="wuFuPHvQNh6a1R64H_l3Sweh0oC7QJfYbRBp5QM12HM" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
-        {%- include getstyles.html path='/css' -%}
-        {%- include getgooglefonts.html path='/css' -%}
+        {%- include getstyles.html path='/assets/css' -%}
+        {%- include getgooglefonts.html -%}
         {% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
             <script>
                 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -26,7 +27,7 @@ fonts:
             <script async src='https://www.google-analytics.com/analytics.js'></script>
         {% endif %}
         <script>document.documentElement.setAttribute('data-javascript-enabled', 'true')</script>
-        {%- include getscripts.html path='/js' afterbody=false -%}
+        {%- include getscripts.html path='/assets/js' in_head=true -%}
     </head>
     <body>
         <header>
@@ -92,6 +93,6 @@ fonts:
                 <span class="button button--noninteractive editable">&copy;2022 Stanford Christian Students</span>
             </div>
         </footer>
-        {%- include getscripts.html path='/js' afterbody=true -%}
+        {%- include getscripts.html path='/assets/js' in_head=false -%}
     </body>
 </html>

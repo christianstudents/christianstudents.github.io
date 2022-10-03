@@ -1,40 +1,141 @@
-{%- if include.scripts != nil -%}
-    {%- assign scripts = include.scripts -%}
-{%- elsif page.scripts -%}
-    {%- if layout.scripts -%}
-        {%- assign scripts = layout.scripts | concat: page.scripts | uniq -%}
-    {%- else -%}
-        {%- assign scripts = page.scripts | uniq -%}
+{%- comment -%} A list of boolean attributes. These are interpreted slightly different from regular attributes. {%- endcomment -%}
+{%- assign booleanAttributes = 'allowfullscreen, async, autofocus, autoplay, checked, controls, default, defer, disabled, formnovalidate, ismap, itemscope, loop, multiple, muted, nomodule, novalidate, open, playsinline, readonly, required, reversed, selected, truespeed' | split: ', ' -%}
+{%- comment -%} The path to the parsed JS files. {%- endcomment -%}
+{%- assign path = include.path | default: "" | append: "/" -%}
+{%- comment -%} A boolean indicating whether we are processing the scripts withing the head element or not.  {%- endcomment -%}
+{%- assign in_head = include.in_head | default: false -%}
+{%- comment -%} This will be a list of strings that keeps track of script attributes. {%- endcomment -%}
+{%- assign scriptAttributeList = '' | split: '' -%}
+{%- comment -%} A boolean indicating whether we've already added the "self script," which is the script with the same corresponding name as the current file (e.g., about.html -> about.js) {%- endcomment -%}
+{%- assign selfAdded = false -%}
+{%- comment -%} This chunk of code figures out the "self script" location by removing the extension from the current file (usually '.html') and appending '.js'. {%- endcomment -%}
+{%- assign selfPageLength = page.path | size -%}
+{%- for num in (0..selfPageLength) -%}
+    {%- assign negNum = num | times: -1 -%}
+    {%- assign char = page.path | slice: negNum -%}
+    {%- if char == '.' -%}
+        {%- assign length = selfPageLength | minus: num -%}
+        {%- assign selfScriptAttributes = page.path | slice: 0, length | prepend: path | append: '.js"' | prepend: ' src="' -%}
+        {%- break -%}
     {%- endif -%}
-{%- elsif layout.scripts -%}
-    {%- assign scripts = layout.scripts | uniq -%}
+{%- endfor -%}
+{%- comment -%} Figure out whether page.scripts is a boolean, a string, or an array of objects. This is done by converting to JSON, and checking the first character. {%- endcomment -%}
+{%- assign scriptJSON = page.scripts | jsonify -%}
+{%- assign scriptJSONFirstChar = scriptJSON | slice: 0 -%}
+{%- comment -%} Check if page.scripts is "true", which is a shorthand way of injecting the "self script". {%- endcomment -%}
+{%- if page.scripts == true and in_head == false -%}
+    {%- assign selfAdded = true -%}
+    {%- assign scriptAttributeList = scriptAttributeList | push: selfScriptAttributes -%}
+{%- comment -%} Check if page.scripts is just a string, which is a shorthand way of injecting a single script at the specified location. {%- endcomment -%}
+{%- elsif scriptJSONFirstChar == '"' and in_head == false -%}
+    {%- assign attribute = ' src="' | append: path | append: page.scripts | append: '"' -%}
+    {%- assign scriptAttributeList = scriptAttributeList | push: attribute -%}
+{%- comment -%} Check if page.scripts is an array. {%- endcomment -%}
+{% elsif scriptJSONFirstChar == '[' -%}
+    {%- comment -%} Iterate through all the scripts specified by the array. {%- endcomment -%}
+    {%- for script in page.scripts -%}
+        {%- comment -%} Do the same thing as before to determine if the current array item is a boolean, string, or object. {%- endcomment -%}
+        {%- assign scriptJSON = script | jsonify -%}
+        {%- assign scriptJSONFirstChar = scriptJSON | slice: 0 -%}
+        {%- comment -%} Check if this item is "true", which is a shorthand way of injecting the "self script". {%- endcomment -%}
+        {%- if script == true and selfAdded != true and in_head == false -%}
+            {%- assign selfAdded = true -%}
+            {%- assign scriptAttributeList = scriptAttributeList | push: selfScriptAttributes -%}
+        {%- comment -%} Check if this item is an object. An object includes keys and values for each attribute on the script element. {%- endcomment -%}
+        {%- elsif scriptJSONFirstChar == '{' -%}
+            {%- comment -%} Keep track of the attributes for this script in a string. {%- endcomment -%}
+            {%- assign currAttributes = '' -%}
+            {%- comment -%} A boolean that keeps track of whether this object specifies a script "src". {%- endcomment -%}
+            {%- assign hasSrc = false -%}
+            {%- comment -%} A boolean indicating whether this script should be injected in the head element or in the body. {%- endcomment -%}
+            {%- assign onlyInHead = false -%}
+            {%- comment -%} Iterate through each item in this object. {%- endcomment -%}
+            {%- for key_val in script -%}
+                {%- assign key = key_val[0] -%}
+                {%- comment -%} Replace quotes with &quot; since each attribute is surrounded with quotes, so we have to escape them. {%- endcomment -%}
+                {%- assign value = key_val[1] | replace: '"', '&quot;' -%}
+                {%- comment -%} Check if this attribute is "src". {%- endcomment -%}
+                {%- if key == 'src' -%}
+                    {%- comment -%} Prepend 'path' to the src location. {%- endcomment -%}
+                    {%- assign currAttributes = currAttributes | prepend: '"' | prepend: value | prepend: path | prepend: ' src="' -%}
+                    {%- comment -%} Keep track of the fact that a src was specified. {%- endcomment -%}
+                    {%- assign hasSrc = true -%}
+                {%- comment -%} Check if this attribute is "in_head" and they specified either 'true' or "". This means this script should only appear in the head element, not in the body. {%- endcomment -%}
+                {%- elsif key == 'in_head' and key_val[1] == true or value == '' -%}
+                    {%- assign onlyInHead = true -%}
+                {%- comment -%} Check if this is a boolean attribute, which are handled differently from other attributes. {%- endcomment -%}
+                {%- elsif booleanAttributes contains key and key_val[1] == true or value == '' or value == key -%}
+                    {%- comment -%} A boolean attribute can only be "" or the name of the attribute (or the boolean value true in this case). If it was specified as such, append the attribute name without a value. {%- endcomment -%}
+                    {%- assign currAttributes = currAttributes | append: ' ' | append: key -%}
+                {%- comment -%} Otherwise, treat this as a regular string attribute. {%- endcomment -%}
+                {%- else -%}
+                    {%- assign currAttributes = currAttributes | append: ' ' | append: key | append: '="' | append: value | append: '"' -%}
+                {%- endif -%}
+            {%- endfor -%}
+            {%- comment -%} If no src was specified, default to the "self script" location, unless we've already injected the self script. {%- endcomment -%}
+            {%- if hasSrc == false and selfAdded == false -%}
+                {%- assign currAttributes = currAttributes | prepend: ' ' | prepend: selfScriptAttributes -%}
+                {%- assign hasSrc = true -%}
+            {%- endif -%}
+            {%- comment -%} Only inject scripts with a valid "src" and as long as they are being injected in the right spot (onlyInHead must match in_head). {%- endcomment -%}
+            {%- if hasSrc == true and onlyInHead == in_head -%}
+                {%- assign scriptAttributeList = scriptAttributeList | push: currAttributes -%}
+            {%- endif -%}
+        {%- comment -%} Check if this item is a plain string, which is a shorthand way of injecting the script at the specified location. {%- endcomment -%}
+        {%- elsif scriptJSONFirstChar == '"' and in_head == false -%}
+            {%- assign attribute = ' src="' | append: path | append: script | append: '"' -%}
+            {%- assign scriptAttributeList = scriptAttributeList | push: attribute -%}
+        {%- endif -%}
+    {%- endfor -%}
 {%- endif -%}
-{%- for script in scripts -%}
-    {%- assign name = script -%}
-    {%- assign path = include.path | default: "" | append: "/" -%}
-    {%- assign bodydone = include.afterbody | default: false -%}
-    {%- assign async = false -%}
-    {%- assign crossorigin = false -%}
-    {%- assign afterbody = false -%}
-    {%- if script.first -%}
-        {%- assign name = script.first[0] -%}
-        {%- if script.first[1].external -%}
-            {%- assign path = "" -%}
+{%- comment -%} Now that page.scripts is done, do everything again, but for layout.scripts. {%- endcomment -%}
+{%- assign scriptJSON = layout.scripts | jsonify -%}
+{%- assign scriptJSONFirstChar = scriptJSON | slice: 0 -%}
+{%- if layout.scripts == true and selfAdded != true and in_head == false -%}
+    {%- assign selfAdded = true -%}
+    {%- assign scriptAttributeList = scriptAttributeList | push: selfScriptAttributes -%}
+{%- elsif scriptJSONFirstChar == '"' and in_head == false -%}
+    {%- assign attribute = ' src="' | append: path | append: layout.scripts | append: '"' -%}
+    {%- assign scriptAttributeList = scriptAttributeList | push: attribute -%}
+{% elsif scriptJSONFirstChar == '[' -%}
+    {%- for script in layout.scripts -%}
+        {%- assign scriptJSON = script | jsonify -%}
+        {%- assign scriptJSONFirstChar = scriptJSON | slice: 0 -%}
+        {%- if script == true and selfAdded != true and in_head == true -%}
+            {%- assign selfAdded = true -%}
+            {%- assign scriptAttributeList = scriptAttributeList | push: selfScriptAttributes -%}
+        {%- elsif scriptJSONFirstChar == '{' -%}
+            {%- assign currAttributes = '' -%}
+            {%- assign hasSrc = false -%}
+            {% assign onlyInHead = false -%}
+            {%- for key_val in script -%}
+                {%- assign key = key_val[0] -%}
+                {%- assign value = key_val[1] | replace: '"', '&quot;' -%}
+                {%- if key == 'src' -%}
+                    {%- assign currAttributes = currAttributes | prepend: '"' | prepend: value | prepend: path | prepend: ' src="' -%}
+                    {%- assign hasSrc = true -%}
+                {%- elsif key == 'in_head' and key_val[1] == true or value == '' -%}
+                    {%- assign onlyInHead = true -%}
+                {%- elsif booleanAttributes contains key and key_val[1] == true or value == '' or value == key -%}
+                    {%- assign currAttributes = currAttributes | append: ' ' | append: key -%}
+                {%- else -%}
+                    {%- assign currAttributes = currAttributes | append: ' ' | append: key | append: '="' | append: value | append: '"' -%}
+                {%- endif -%}
+            {%- endfor -%}
+            {%- if hasSrc == false and selfAdded == false -%}
+                {%- assign currAttributes = currAttributes | prepend: ' ' | prepend: selfScriptAttributes -%}
+                {%- assign hasSrc = true -%}
+            {%- endif -%}
+            {%- if hasSrc == true and onlyInHead == in_head -%}
+                {%- assign scriptAttributeList = scriptAttributeList | push: currAttributes -%}
+            {%- endif -%}
+        {%- elsif scriptJSONFirstChar == '"' and in_head == true -%}
+            {%- assign attribute = ' src="' | append: path | append: script | append: '"' -%}
+            {%- assign scriptAttributeList = scriptAttributeList | push: attribute -%}
         {%- endif -%}
-        {%- if script.first[1].async -%}
-            {%- assign async = true -%}
-        {%- endif -%}
-        {%- if script.first[1].crossorigin -%}
-            {%- assign crossorigin = true -%}
-        {%- endif -%}
-        {%- if script.first[1].afterbody -%}
-            {%- assign afterbody = true -%}
-        {%- endif -%}
-        {%- if script.first[1].path -%}
-            {%- capture path -%}{{ script.first[1].path }}/{%- endcapture -%}
-        {%- endif -%}
-    {%- endif -%}
-    {%- if afterbody == bodydone -%}
-        <script type="text/javascript" src="{{ path }}{{ name }}"{%- if async -%} async{%- endif -%}{%- if crossorigin -%} crossorigin{%- endif -%}></script>
-    {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}
+{%- comment -%} Go through all the script attributes that accumulated in scriptAttributeList and create a script element for each item with all the specified attributes. {%- endcomment -%}
+{%- for scriptAttributes in scriptAttributeList -%}
+    <script {{- scriptAttributes -}} type="text/javascript"></script>
 {%- endfor -%}

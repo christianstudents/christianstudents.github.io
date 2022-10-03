@@ -47,12 +47,17 @@ plugins:
 - jekyll-sitemap
 - jekyll-seo-tag
 - jekyll-paginate
+- jekyll/webpack
 exclude:
 - Gemfile
 - Gemfile.lock
 - README.md
-- LICENCE
+- LICENSE
 - vendor
+- package.json
+- package-lock.json
+- tsconfig.json
+- node_modules
 _options:
   header_background_image:
     width: 1880
