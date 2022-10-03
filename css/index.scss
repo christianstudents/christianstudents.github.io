@@ -1,0 +1,402 @@
+@import "../_sass/variables";
+@import "../_sass/css-functions";
+
+#welcome {
+    $youtube-video-aspect-ratio: 16 / 9;
+    $youtube-video-width-proportion: 0.5;
+    $youtube-video-desktop-overflow: 3em;
+    $youtube-video-mobile-overflow: 0.2;
+
+    margin: 0 #{-$page-side-padding-desktop};
+
+    > :first-child {
+        background-color: $color-primary;
+        color: $color-mono-lightest;
+        padding: 0 #{$page-side-padding-desktop};
+
+        > :first-child {
+            width: css-min(40rem, calc((100vw - #{2 * $page-side-padding-desktop}) * #{$youtube-video-width-proportion}));
+            min-height: css-min(40rem / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding-desktop}) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio} - #{$youtube-video-desktop-overflow}));
+            align-self: stretch;
+            flex-basis: initial;
+            flex-grow: 0;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            > * {
+                flex-grow: 1;
+                max-height: css-min(40rem / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding-desktop}) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+                position: relative;
+
+                iframe {
+                    width: css-min(40rem, calc((100vw - #{2 * $page-side-padding-desktop}) * #{$youtube-video-width-proportion}));
+                    height: css-min(40rem / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding-desktop}) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+                    position: absolute;
+                    border-radius: 1em;
+
+                    @media #{$mobile} {
+                        width: css-min(40rem, calc((100vw - #{2 * $page-side-padding-mobile})));
+                        height: css-min(40rem / $youtube-video-aspect-ratio, calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $youtube-video-aspect-ratio}));
+                    }
+                }
+
+                @media #{$mobile} {
+                    max-height: initial;
+                }
+            }
+
+            @media #{$mobile} {
+                height: css-min(40rem / #{$youtube-video-aspect-ratio * (1 - $youtube-video-mobile-overflow)}, calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $youtube-video-aspect-ratio} * #{1 - $youtube-video-mobile-overflow}));
+            }
+        }
+
+        > :last-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            h1 {
+                @media #{$mobile} {
+                    margin-top: .5em;
+                }
+            }
+
+            p {
+                margin: 0 0 1em;
+            }
+
+            .button-group {
+                padding-bottom: 1.5em;
+            }
+
+            @media #{$mobile} {
+                margin-left: 0;
+            }
+        }
+
+        @media #{$mobile} {
+            flex-direction: column-reverse;
+            padding: 0 #{$page-side-padding-mobile};
+        }
+    }
+
+    > :last-child {
+        height: css-min(40rem / #{$youtube-video-aspect-ratio}, calc((100vw - #{2 * $page-side-padding-desktop}) * #{$youtube-video-width-proportion / $youtube-video-aspect-ratio}));
+
+        @media #{$mobile} {
+            height: css-min(40rem / #{$youtube-video-mobile-overflow / $youtube-video-aspect-ratio}, calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $youtube-video-aspect-ratio} * #{$youtube-video-mobile-overflow}));
+            flex-basis: initial;
+        }
+    }
+
+    @media #{$mobile} {
+        flex-direction: column;
+        margin: 0 #{-$page-side-padding-mobile};
+    }
+}
+
+#upcoming-events {
+    margin-top: 3em;
+
+    h2 {
+        font-size: 1em;
+        margin: 0;
+
+        a {
+            color: $color-primary;
+            text-decoration: none;
+    
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+
+        button {
+            margin: 0;
+            border: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+
+    .upcoming-events-widget {
+        margin: 0 #{-$page-side-padding-desktop};
+        padding: 1em #{$page-side-padding-desktop};
+        overflow-x: auto;
+
+        .upcoming-event ~ .upcoming-event {
+            margin-left: 1em;
+        }
+
+        @media #{$mobile} {
+            margin: 0 #{-$page-side-padding-mobile};
+            padding: 1em #{$page-side-padding-mobile};
+        }
+    }
+
+    @media #{$mobile} {
+        margin-top: 2em;
+    }
+}
+
+#join-our-events {
+    margin-top: 3em;
+
+    > :first-child {
+        margin-top: -3em;
+        padding-top: 3em;
+
+        h2 {
+            color: $color-primary;
+        }
+    }
+
+    > :last-child {
+        .page-content-cell {
+            h3 {
+                color: $color-primary;
+                font-size: 1.25em;
+                margin: 0;
+            }
+
+            p {
+                margin: .5em 0 0;
+            }
+        }
+
+        @media #{$mobile} {
+            margin-top: 1.5em;
+        }
+    }
+
+    @media #{$mobile} {
+        margin-top: 2em;
+    }
+}
+
+#testimonies {
+    $img-aspect-ratio: 7 / 6;
+    $img-desktop-overflow: 3em;
+    $img-mobile-overflow: 3em;
+
+    margin: 3em #{-$page-side-padding-desktop} 0;
+
+    > :first-child {
+        background-color: $color-secondary;
+        color: $color-mono-darkest;
+        padding: 3em #{$page-side-padding-desktop} 0;
+
+        > :first-child {
+            width: calc((100vw - #{2 * $page-side-padding-desktop}) * 0.5);
+            min-height: calc((100vw - #{2 * $page-side-padding-desktop}) * #{0.5 / $img-aspect-ratio} - #{$img-desktop-overflow});
+            align-self: stretch;
+            flex-basis: initial;
+            flex-grow: 0;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            > * {
+                flex-grow: 1;
+                max-height: calc((100vw - #{2 * $page-side-padding-desktop}) * #{0.5 / $img-aspect-ratio});
+                position: relative;
+
+                > * {
+                    position: absolute;
+                    width: 100%;
+
+                    img {
+                        width: calc((100vw - #{2 * $page-side-padding-desktop}) * 0.5);
+                        height: calc((100vw - #{2 * $page-side-padding-desktop}) * #{0.5 / $img-aspect-ratio});
+
+                        @media #{$mobile} {
+                            width: calc((100vw - #{2 * $page-side-padding-mobile}));
+                            height: calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $img-aspect-ratio});
+                        }
+                    }
+                }
+
+                @media #{$mobile} {
+                    max-height: initial;
+                    margin-top: 1.5em;
+                }
+            }
+
+            @media #{$mobile} {
+                width: 100%;
+                height: calc((100vw - #{2 * $page-side-padding-mobile}) * #{1 / $img-aspect-ratio} - #{$img-mobile-overflow});
+            }
+        }
+
+        > :last-child {
+            flex-grow: 1;
+            flex-shrink: 1;
+            align-self: center;
+
+            h2 {
+                @media #{$mobile} {
+                    margin-top: .5em;
+                }
+            }
+
+            @media #{$mobile} {
+                margin-left: 0;
+            }
+        }
+
+        @media #{$mobile} {
+            flex-direction: column-reverse;
+            padding: 0 #{$page-side-padding-mobile};
+        }
+    }
+
+    > :last-child {
+        height: calc((100vw - #{2 * $page-side-padding-desktop}) * #{0.5 / $img-aspect-ratio} + 3em);
+
+        @media #{$mobile} {
+            height: $img-mobile-overflow;
+            flex-basis: initial;
+        }
+    }
+
+    @media #{$mobile} {
+        flex-direction: column;
+        margin: 2em  #{-$page-side-padding-mobile} 0;
+    }
+}
+
+#read-the-bible-with-us {
+    margin-top: 3em;
+    padding-bottom: 3em;
+
+    > :first-child {
+        margin-top: -3em;
+        padding-top: 3em;
+
+        h2 {
+            color: $color-primary;
+        }
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+
+                @media #{$mobile} {
+                    margin-bottom: 1em;
+                }
+            }
+
+            @media #{$mobile} {
+                margin-left: 0;
+            }
+        }
+
+        @media #{$mobile} {
+            text-align: left;
+        }
+    }
+
+    .daily-bread-widget {
+        h3 {
+            color: $color-primary;
+            font-size: 1em;
+            margin: 0;
+        }
+
+        &--loading .button-group,
+        &--expanded .button-group,
+        &--errored .button-group {
+            display: none;
+        }
+
+        .button-group {
+            padding-top: 1em;
+        }
+    }
+
+    @media #{$mobile} {
+        margin-top: 2em;
+        padding-bottom: 2em;
+    }
+}
+
+#connect {
+    background-color: $color-primary;
+    margin: 0 #{-$page-side-padding-desktop};
+    padding: 3em #{$page-side-padding-desktop};
+    color: $color-mono-lightest;
+
+    #mc_embed_signup {
+        padding-right: $page-column-separation;
+        @include minor-column(left);
+
+        div.mce_inline_error {
+            padding: 0;
+            background-color: transparent;
+            font-weight: normal;
+            margin: 0 0 .25rem;
+            padding-left: 1rem;
+
+            &:before {
+                font-family: "Font Awesome 6 Free";
+                content: "\f071";
+                font-weight: 900;
+                margin-right: .25em;
+            }
+        }
+
+        .mc-field-group {
+            display: flex;
+            flex-direction: column-reverse;
+            margin-bottom: 1em;
+        }
+
+        input {
+            padding: .75rem 1rem;
+            border-radius: .5rem;
+            cursor: initial;
+            background-color: $color-mono-lightest;
+            color: $color-mono-darkest;
+            font-family: inherit;
+            border: 0;
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        label {
+            font-size: .9rem;
+            font-weight: bold;
+            color: $color-mono-lightest;
+            padding: .25rem 0 0 1rem;
+        }
+
+        .mce-responses {
+            margin: 1em 0;
+
+            @media #{$mobile} {
+                text-align: center;
+            }
+        }
+    }
+
+    > div:not(:first-child) {
+        @include minor-column(right);
+        align-self: center;
+
+        @media #{$mobile} {
+            align-self: initial;
+        }
+    }
+
+    @media #{$mobile} {
+        margin: 0 #{-$page-side-padding-mobile};
+        padding: 2em #{$page-side-padding-mobile};
+        flex-direction: column-reverse;
+    }
+}
