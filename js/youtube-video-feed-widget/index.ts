@@ -106,6 +106,8 @@ const createWidgets = () => {
             widgetContainers[i].appendChild(element);
           }
         }
+
+        widgetBem.modify({ state: "loaded" });
       })
       .catch(() => {
         const div = document.createElement("div");

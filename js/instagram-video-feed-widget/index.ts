@@ -219,6 +219,8 @@ const createWidgets = () => {
             playbackRates: [0.5, 1, 1.5, 2],
           });
         }
+
+        widgetBem.modify({ state: "loaded" });
       })
       .catch(() => {
         const div = document.createElement("div");
