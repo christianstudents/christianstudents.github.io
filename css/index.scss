@@ -309,9 +309,9 @@
             margin: 0;
         }
 
-        &--loading .button-group,
+        &--state-loading .button-group,
         &--expanded .button-group,
-        &--errored .button-group {
+        &--state-errored .button-group {
             display: none;
         }
 
