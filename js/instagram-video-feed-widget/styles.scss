@@ -1,0 +1,74 @@
+@import "../_sass/variables";
+@import "../_sass/sass-functions";
+
+$widget-class-name: "instagram-video-feed-widget";
+$video-class-name: "instagram-video";
+
+.#{$widget-class-name} {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__no-videos,
+    &__loading {
+        width: 100%;
+        height: 11rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__errored {
+        width: 100%;
+        height: 11rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .button {
+            margin-top: 1em;
+        }
+    }
+}
+
+.#{$video-class-name} {
+    color: $color-mono-darkest;
+    box-shadow: 0 0 0 1px $color-mono-lighter;
+    background-color: $color-mono-lighter;
+    border-radius: 0.5em;
+    width: 15rem;
+    height: 11rem;
+    flex-shrink: 0;
+
+    .video-js,
+    .vjs-poster,
+    video {
+        border-radius: inherit;
+    }
+
+    .vjs-control-bar {
+        border-bottom-right-radius: inherit;
+        border-bottom-left-radius: inherit;
+    }
+
+    .video-js,
+    video {
+        background-color: transparent;
+    }
+
+    .vjs-scs-theme.video-js {
+        .vjs-big-play-button {
+            background-color: $color-primary;
+            background-color: transparentize($color: $color-primary, $amount: .3);
+            border-color: $color-mono-lightest;
+            color: $color-mono-lightest;
+        }
+
+        .vjs-big-play-button:focus,
+        &:hover .vjs-big-play-button {
+            background-color: scale-color($color-primary, $lightness: 50%);
+            background-color: transparentize(scale-color($color-primary, $lightness: 50%), $amount: .3);
+        }
+    }
+}
