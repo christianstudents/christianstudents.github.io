@@ -18,7 +18,7 @@ const createWidgets = () => {
   /**
    * The API endpoint for retrieving upcoming events.
    */
-  const ENDPOINT = `https://scs-app-backend-481f8.web.app/api/v1/events`;
+  const ENDPOINT = `https://scs-app-backend-481f8.web.app/api/v1/events10`;
   const widgetContainers = widgetBem.select();
 
   const fetchEvents = () => {
