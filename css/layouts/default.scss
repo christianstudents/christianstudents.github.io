@@ -213,7 +213,9 @@ body > footer {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-
+        @media #{$mobile} {
+            align-items: center;
+        }
         &:first-child {
             align-items: flex-start;
 
@@ -224,6 +226,10 @@ body > footer {
 
         :not(:first-child):not(:last-child) {
             align-items: center;
+            
+            @media #{$mobile} {
+                align-items: center;
+            }
         }
 
         &:last-child {
