@@ -11,10 +11,10 @@ const UNEXPANDED_LENGTH = 5;
 
 //
 import { Amplify } from 'aws-amplify'
-import awsExports from '../../src/aws-exports'
+import awsmobile from '../../src/aws-exports'
 import { DataStore } from 'aws-amplify/datastore';
 import { DailyBread } from "../../src/models";
-Amplify.configure(awsExports);
+Amplify.configure(awsmobile);
 
 const createWidgets = () => {
   "use strict";
