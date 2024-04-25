@@ -10,11 +10,20 @@ const bem = BEM("daily-bread-widget");
 const UNEXPANDED_LENGTH = 5;
 
 //
-import { Amplify } from 'aws-amplify'
-import awsmobile from '../../src/aws-exports'
 import { DataStore } from 'aws-amplify/datastore';
 import { DailyBread } from "../../src/models";
-Amplify.configure(awsmobile);
+import { Amplify } from 'aws-amplify';
+
+Amplify.configure({
+  API: {
+    GraphQL: {
+      endpoint: 'https://gi4zexzfnfcbzbz6luibswx2bi.appsync-api.us-west-1.amazonaws.com/graphql',
+      region: 'us-west-1',
+      defaultAuthMode: 'apiKey',
+      apiKey: 'da2-kcdik2ri5zflzgicrd2mgaz2dm'
+    }
+  }
+});
 
 const createWidgets = () => {
   "use strict";
