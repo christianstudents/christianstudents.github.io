@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily</title>
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/daily/manifest.json">
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Installable PWA Apple support -->
+    <link rel="apple-touch-icon" href="/daily/icons/icon-192.png">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/daily/styles.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <div id="daily-scroll-bar" class="scroll-bar"></div>
+
+    <div id="morning-revival">
+        <h2 id="mr-title">Daily Devotional</h2>
+        <div id="mr-verses"></div>
+        <div id="mr-excerpts"></div>
+        <div id="mr-instruction"></div>
+        <div id="mr-citation"></div>
+    </div>
+
+    <div id="daily-bread">
+        <h2 id="chapter-title"></h2>
+        <div id="verses"></div>
+    </div>
+
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+                .register("/daily/service-workers.js")
+                .then(() => console.log("Service worker registered"))
+                .catch(err => console.error("SW registration failed:", err));
+        }
+    </script>
+    <script type="module" src="/daily/scrollbar.js"></script>
+</body>
+
+</html>
