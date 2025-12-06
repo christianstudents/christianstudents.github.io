@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+    <button id="install-btn" style="display: none;">Install App</button>
     <div id="daily-scroll-bar" class="scroll-bar"></div>
 
     <div id="morning-revival">
@@ -41,12 +41,13 @@
     <script>
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker
-                .register("/daily/service-workers.js")
+                .register("/daily/service-worker.js")
                 .then(() => console.log("Service worker registered"))
                 .catch(err => console.error("SW registration failed:", err));
         }
     </script>
     <script type="module" src="/daily/scrollbar.js"></script>
+     <script type="module" src="/daily/install.js"></script>
 </body>
 
 </html>
