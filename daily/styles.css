@@ -114,3 +114,14 @@ a:active {
     padding: 16px 16px;
     border-radius: 16px
 }
+
+#install-btn {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem; /* spacing from scroll bar */
+  border: none;
+  border-radius: 16px;
+  background-color: var(--button-selected-bg);
+  color: var(--button-selected-color);
+  font-weight: 700;
+  cursor: pointer;
+}
