@@ -1,0 +1,116 @@
+:root {
+  --bg-color: #f3f3f3;
+  --text-color: #000;
+  --card-bg: #fff;
+  --link-color: #DD5450;
+  --button-outline:#DD5450 ;
+  --button-bg: #eee;
+  --button-selected-bg: #DD5450;
+  --button-selected-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #f3f3f3;
+    --card-bg: #1e1e1e;
+    --link-color: #DD5450;
+    --button-bg: #333;
+    --button-outline: #DD5450;
+    --button-selected-bg: #DD5450;
+    --button-selected-color: #fff;
+  }
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+ h1, h2, h3, strong, b {
+      font-weight: 700;
+    }
+
+/* Default color for unvisited links */
+a:link {
+  color: var(--link-color);
+}
+
+/* Color for visited links */
+a:visited {
+  color: var(--link-color);
+}
+
+/* Color when the mouse hovers over the link */
+a:hover {
+  color: var(--link-color);
+}
+
+/* Color when the link is actively being clicked */
+a:active {
+  color: var(--link-color);
+}
+
+.scroll-bar {
+  display: flex;          /* arrange buttons in a row */
+  overflow-x: auto;
+  justify-content: flex-start; /* align items to the left */
+  gap: 0.5rem;            /* spacing between buttons */
+  width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  
+}
+.scroll-bar::-webkit-scrollbar {
+  display: none;          /* Chrome, Safari, Edge */
+}
+
+.scroll-bar button {
+    flex: 0 0 60px; /* fixed width */
+    height: 40px;   /* optional fixed height */
+    border: 1px solid var(--button-outline);
+    border-radius: 16px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.scroll-bar button:disabled {
+    opacity: 0.4;
+    border: none;
+    cursor: not-allowed;
+}
+
+.scroll-bar button.selected {
+  background-color: var(--button-selected-bg);
+  color: var(--button-selected-color);
+}
+
+#morning-revival, #daily-bread {
+  margin-bottom: 2rem;
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.verse-ref{
+    font-weight: 700
+}
+
+#mr-citation p{
+    font-size: 0.7rem;  /* slightly smaller than default text */
+}
+
+
+#mr-verses{
+    background-color: #dd555050;
+    padding: 16px 16px;
+    border-radius: 16px
+}
