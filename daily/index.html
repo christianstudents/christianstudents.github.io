@@ -16,8 +16,13 @@
     <link rel="apple-touch-icon" href="/daily/icons/icon-192.png">
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/daily/styles.css">
-    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- AWS SDK -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1503.0.min.js"></script>
+    <script type="module" src="/daily/user.js"></script>
+
 </head>
 
 <body>
@@ -33,8 +38,31 @@
     </div>
 
     <div id="daily-bread">
-        <h2 id="chapter-title"></h2>
+    <div id="chapter-header" class="chapter-header">
+        <div class="left">
+            <h2 id="chapter-title"></h2>
+            <div id="read-toggle" class="unread">
+            <span class="material-symbols-outlined">
+                check
+            </span>
+            </div>
+        </div>
+        <div class="right">
+            <span id="users-read"></span>
+        </div>
+    </div>
         <div id="verses"></div>
+        <div>
+            <button id="read-button" class="unread">Mark as read</button>
+        </div>
+        <h2>Comments</h2>
+        <div id="comments"></div>
+
+        <div id="comment-form">
+            <input type="text" id="comment-name" placeholder="Your name (optional)">
+            <textarea id="comment-input" placeholder="Write a comment..." rows="3"></textarea>
+            <button id="comment-submit">Post Comment</button>
+        </div>
     </div>
 
 
@@ -47,7 +75,9 @@
         }
     </script>
     <script type="module" src="/daily/scrollbar.js"></script>
-     <script type="module" src="/daily/install.js"></script>
+    <script type="module" src="/daily/install.js"></script>
+    <script type="module" src="/daily/readbutton.js"></script>
+    <script type="module" src="/daily/comments.js"></script>
 </body>
 
 </html>

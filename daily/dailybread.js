@@ -1,7 +1,9 @@
-import { AWSDateFormat } from "/daily/helpers.js";
+import { AWSDateFormat, timeAgo } from "/daily/helpers.js";
+
 
 const chapterTitle = document.getElementById("chapter-title");
 const versesDiv = document.getElementById("verses");
+const commentsDiv = document.getElementById("comments"); // New div for comments
 
 const endpoint = "https://gi4zexzfnfcbzbz6luibswx2bi.appsync-api.us-west-1.amazonaws.com/graphql";
 const apiKey = "da2-kcdik2ri5zflzgicrd2mgaz2dm";
@@ -12,15 +14,27 @@ const query = `
       date
       bookName
       chapterIdx
+      comments {
+        items {
+          id
+          name
+          text
+          datetime
+          username
+          _version
+        }
+      }
     }
   }
 `;
+
 /**
  * Fetch Daily Bread from AWS Amplify DataStore for a specific day
  */
 export function fetchDailyBread(dayIndex) {
     chapterTitle.textContent = "Loading...";
     versesDiv.innerHTML = "";
+    commentsDiv.innerHTML = "";
     const queryDate = AWSDateForDay(dayIndex)
     fetch(endpoint, {
         method: "POST",
@@ -38,6 +52,25 @@ export function fetchDailyBread(dayIndex) {
                 versesDiv.innerHTML = "";
                 return;
             }
+            // Populate comments
+            if (db.comments?.items?.length) {
+                // Sort comments by datetime ascending
+                const username = localStorage.getItem("guestUserId") || "guest";
+                const sortedComments = db.comments.items.sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
+                // Render comments
+                commentsDiv.innerHTML = sortedComments.map((c, idx) => {
+                    return `
+            <div class="comment" data-idx="${idx}" data-id="${c.id}" data-version="${c._version}">
+                <p class="comment-text">
+                    <strong>${c.name}:</strong> ${c.text}
+                </p>
+                <p class="comment-date">${timeAgo(c.datetime)}</p>
+            </div>
+        `;
+                }).join("")
+            } else {
+                commentsDiv.innerHTML = "";
+            }
 
             return fetch(`/daily/assets/bible/${db.bookName}.json`)
                 .then(res => res.json())
@@ -49,7 +82,7 @@ export function fetchDailyBread(dayIndex) {
             chapterTitle.textContent = chapter.refLong;
             versesDiv.innerHTML = chapter.verses.map((v, idx) =>
                 `<p class="verse">
-          <span class="verse-ref">${idx+1}</span>
+          <span class="verse-ref">${idx + 1}</span>
           <span class="verse-text">${v.text}</span>
         </p>`
             ).join("");
