@@ -125,3 +125,123 @@ a:active {
   font-weight: 700;
   cursor: pointer;
 }
+
+.chapter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.chapter-header .left {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* space between title and checkbox */
+}
+
+.chapter-header .left h2 {
+    margin: 0; /* remove default margin */
+}
+
+.chapter-header .right {
+    font-size: 0.9rem;
+}
+
+.material-symbols-outlined{
+    color:#DD5450
+}
+
+#read-toggle {
+  display: inline-block; /* or flex if you want alignment */
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+#read-toggle.unread {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#read-toggle.read {
+  opacity: 1;
+  visibility: visible;
+  color: var(--button-selected-bg); /* optional color */
+}
+
+#read-button{
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem; /* spacing from scroll bar */
+    border: 1px solid var(--button-outline);
+    border-radius: 16px;
+    cursor: pointer;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#read-button.unread{
+    background-color: var(--button-bg);
+    color: var(--text-color);
+}
+
+#read-button.read {
+  background-color: var(--button-selected-bg);
+  color: var(--button-selected-color);
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.2rem;
+}
+.comment-text {
+    margin: 0;
+}
+.comment {
+    margin-bottom: 1rem;
+}
+
+
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#comment-name, #comment-input {
+    padding: 0.5rem 0.75rem;
+    font-family: inherit;        /* use the page font */
+    font-size: 1rem;
+    border-radius: 16px; /* match buttons/cards */
+    border: 1px solid var(--button-outline); /* matches your button border */
+    background-color: var(--card-bg); /* matches card background */
+    color: var(--text-color);
+    resize: vertical;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Focus state */
+#comment-name:focus, #comment-input:focus {
+    outline: none;
+    border-color: var(--link-color); /* highlight on focus */
+    box-shadow: 0 0 0 2px rgba(221, 84, 80, 0.2);
+}
+#comment-submit {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--button-outline);
+    border-radius: 16px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    font-weight: 700;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+#comment-submit:hover {
+    background-color: var(--button-selected-bg);
+    color: var(--button-selected-color);
+    border-color: var(--button-selected-bg);
+}
